@@ -2514,7 +2514,10 @@ function loadCurrentSkillIntoSimulator() {
   runLivePredictSimulation();
 }
 
+let simRequestSeq = 0;
+
 async function runLivePredictSimulation() {
+  const reqId = ++simRequestSeq;
   const f1 = parseFloat(document.getElementById('sim-f1').value || 0);
   const f2 = parseFloat(document.getElementById('sim-f2').value || 1);
   const f3 = parseFloat(document.getElementById('sim-f3').value || 1);
@@ -2529,16 +2532,35 @@ async function runLivePredictSimulation() {
   const qRows = DATA.watchlist[STATE.quarter] || DATA.watchlist['2026-Q1'] || [];
   const sampleItem = qRows.find(r => r.s === STATE.selectedSkill) || qRows[0];
   const pArr = sampleItem && (sampleItem.p[STATE.modelKey] || sampleItem.p['M4|RF']);
-  const tau = pArr ? pArr[1] : 0.44;
+  let tau = pArr ? pArr[1] : 0.44;
+
+  const [mPrefix, algShort] = (STATE.modelKey || 'M4|RF').split('|');
+  const modelCodeMap = {
+    M4: 'M4_Demand_Context_Role',
+    M3: 'M3_Demand_Context',
+    M2: 'M2_Context_Only',
+    M1: 'M1_Demand_Only',
+  };
+  const algoMap = {
+    RF: 'RandomForest',
+    LGBM: 'LightGBM',
+    XGB: 'XGBoost',
+    LR: 'LogisticRegression',
+  };
+  const reqModelCode = modelCodeMap[mPrefix] || 'M4_Demand_Context_Role';
+  const reqAlgorithm = algoMap[algShort] || 'RandomForest';
 
   let prob = null;
   let usedApi = false;
+  let apiModelLabel = STATE.modelKey || 'M4|RF';
 
   if (window.location && window.location.protocol && window.location.protocol.startsWith('http')) {
     try {
       const qs = new URLSearchParams({
         scope: STATE.datasetScope,
         skill: STATE.selectedSkill,
+        model_code: reqModelCode,
+        algorithm: reqAlgorithm,
         qoq_growth_smoothed: f1.toFixed(4),
         ema_ratio_short_long: f2.toFixed(4),
         cooc_weighted_degree_roll4: f3.toFixed(4),
@@ -2547,28 +2569,58 @@ async function runLivePredictSimulation() {
       const resp = await fetch(`/api/predict?${qs.toString()}`);
       if (resp.ok) {
         const json = await resp.json();
-        const pVal = typeof json.pred_prob === 'number'
-          ? json.pred_prob
-          : (typeof json.predicted_probability === 'number' ? json.predicted_probability : null);
+        const pVal = typeof json.predicted_prob === 'number'
+          ? json.predicted_prob
+          : (typeof json.pred_prob === 'number'
+            ? json.pred_prob
+            : (typeof json.predicted_probability === 'number' ? json.predicted_probability : null));
         if (pVal !== null) {
           prob = pVal;
+          if (typeof json.tau_oof === 'number') {
+            tau = json.tau_oof;
+          }
+          if (json.model_code && json.algorithm) {
+            const shortM = json.model_code.split('_')[0];
+            apiModelLabel = `${shortM}|${json.algorithm}`;
+          }
           usedApi = true;
         }
       }
     } catch (e) {}
   }
 
+  if (reqId !== simRequestSeq) return;
+
   if (prob === null) {
-    const logit = -1.15 + 0.58 * f1 + 0.45 * (f2 - 1.0) + 0.24 * f3 + 0.85 * f4;
-    prob = Math.max(0.03, Math.min(0.97, 1 / (1 + Math.exp(-logit))));
+    // Offline fallback using calibrated LogisticRegression parameters per scope when app.py is unavailable
+    const lrParams = STATE.datasetScope === 'INDONESIA'
+      ? {
+          means: [0.54294953, 1.02993667, 1.27456647, 0.16487476],
+          stds: [1.803763, 0.17729756, 1.22348955, 0.13905942],
+          coefs: [-0.10427347, -0.48670752, 0.20194946, 0.01625081],
+          intercept: -0.026874685592701505
+        }
+      : {
+          means: [0.27101471, 0.99021296, 1.23218601, 0.257519],
+          stds: [0.99163905, 0.14312543, 1.00145577, 0.17686192],
+          coefs: [-0.24892738, -0.49887172, 0.08179959, 0.20092406],
+          intercept: -0.06394259864144512
+        };
+    const vals = [f1, f2, f3, f4];
+    let logit = lrParams.intercept;
+    for (let i = 0; i < 4; i++) {
+      const z = Math.max(-8.0, Math.min(8.0, (vals[i] - lrParams.means[i]) / lrParams.stds[i]));
+      logit += z * lrParams.coefs[i];
+    }
+    prob = Math.max(0.01, Math.min(0.99, 1 / (1 + Math.exp(-logit))));
   }
 
   const isWarn = prob >= tau;
   document.getElementById('sim-prob-output').textContent = (prob * 100).toFixed(1).replace('.', ',') + '%';
   document.getElementById('sim-tau-output').textContent = 'vs Batas ' + (tau * 100).toFixed(1).replace('.', ',') + '%';
   document.getElementById('sim-source-label').textContent = usedApi
-    ? `Inferensi Live API (/api/predict · ${STATE.selectedSkill})`
-    : `Simulasi Peluang Naik (${STATE.selectedSkill})`;
+    ? `Inferensi Live .pkl (/api/predict · ${apiModelLabel} · ${STATE.selectedSkill})`
+    : `Mode Offline JS (Tanpa server app.py · ${STATE.selectedSkill})`;
 
   const badge = document.getElementById('sim-status-badge');
   if (isWarn) {
