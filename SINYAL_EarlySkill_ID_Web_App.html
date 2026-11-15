@@ -101,7 +101,7 @@
 
   <!-- ================= EDITORIAL TOP BAR ================= -->
   <header class="sticky top-0 z-30 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 h-14 flex items-center justify-between gap-3">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-3">
       <!-- Brand + Underline Navigation -->
       <div class="flex items-center gap-6 lg:gap-8 min-w-0">
         <button type="button" onclick="switchView('v0')" class="flex items-center gap-2 shrink-0 text-left group">
@@ -174,7 +174,7 @@
   </nav>
 
   <!-- ================= MAIN APP WORKSPACE ================= -->
-  <main class="flex-1 max-w-[1400px] w-full mx-auto px-3 sm:px-6 pt-5 sm:pt-7 pb-12">
+  <main class="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 pt-6 sm:pt-7 pb-24 sm:pb-12">
 
     <!-- BVA Alert Banner -->
     <div id="bva-banner" class="bva-alert">
@@ -185,7 +185,7 @@
     <!-- =================================================================
          VIEW 0: BERANDA / GUIDED STORYTELLING LANDING PAGE
          ================================================================= -->
-    <section id="view-v0" class="view-section active space-y-12 sm:space-y-16">
+    <section id="view-v0" class="view-section active space-y-14 sm:space-y-16">
 
       <!-- CHAPTER 1: APA WEB INI? -->
       <div class="pt-4 sm:pt-8 space-y-8">
@@ -419,10 +419,10 @@
     <!-- =================================================================
          VIEW 1: RADAR SKILL
          ================================================================= -->
-    <section id="view-v1" class="view-section space-y-5 sm:space-y-6">
+    <section id="view-v1" class="view-section space-y-5">
 
-      <!-- Clean Typographic Header + Hairline Divided Metric Strip -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-1">
+      <!-- Clean Typographic Header + 2 Focused Radar Status Counters -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-1">
         <div class="space-y-1">
           <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 tracking-wide">
             HORIZON +2 KUARTAL (6 BLN) &middot; <span id="meta-pill-range">2023-Q1 – 2026-Q4</span> <span id="meta-pill-jobs" class="hidden sm:inline">&middot; 5.139 Loker</span>
@@ -431,75 +431,44 @@
             Radar Skill TI yang Mulai Tumbuh
           </h1>
           <p id="scope-banner-desc" class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-            Pilih baris skill untuk melihat histori kuartalan, ekosistem pendamping, dan iklan lowongan aslinya.
+            Pilih baris skill untuk melihat perbandingan Indonesia vs Global dan pendorong skor AI.
           </p>
         </div>
 
-        <!-- Uniform 1px Divided Metric Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg divide-y sm:divide-y-0 sm:divide-x divide-zinc-200 dark:divide-zinc-800 shrink-0">
+        <!-- Compact Radar Status Strip (2 Focused Counters Only) -->
+        <div class="grid grid-cols-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg divide-x divide-zinc-200 dark:divide-zinc-800 shrink-0 self-start sm:self-auto">
           <div class="px-4 py-2.5">
             <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Skill Dipantau</div>
             <div class="flex items-baseline gap-1 mt-0.5 font-mono tabular-nums">
               <span id="kpi-risk-count" class="font-bold text-lg text-zinc-900 dark:text-white">71</span>
-              <span id="kpi-bmax-tag" class="text-[11px] text-zinc-400">skill</span>
+              <span class="text-[11px] text-zinc-400">skill</span>
             </div>
-            <div id="kpi-risk-sub" class="hidden"></div>
           </div>
 
           <div class="px-4 py-2.5">
             <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Sinyal Naik</div>
             <div class="flex items-baseline gap-1 mt-0.5 font-mono tabular-nums">
               <span id="kpi-warn-count" class="font-bold text-lg text-emerald-600 dark:text-emerald-400">18</span>
-              <span id="kpi-tau-tag" class="text-[11px] text-zinc-400">aktif</span>
+              <span class="text-[11px] text-zinc-400">aktif</span>
             </div>
-          </div>
-
-          <div class="px-4 py-2.5">
-            <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Akurasi PR-AUC</div>
-            <div class="flex items-baseline gap-1 mt-0.5 font-mono tabular-nums">
-              <span id="kpi-ap-val" class="font-bold text-lg text-zinc-900 dark:text-white">70,1%</span>
-              <span id="kpi-delta-tag" class="hidden">+M1</span>
-            </div>
-            <span id="kpi-ap-unit" class="hidden"></span>
-          </div>
-
-          <div class="px-4 py-2.5">
-            <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Lead Time</div>
-            <div class="flex items-baseline gap-1 mt-0.5 font-mono tabular-nums">
-              <span id="kpi-lt-val" class="font-bold text-lg text-zinc-900 dark:text-white">1,45</span>
-              <span class="text-[11px] text-zinc-400">kuartal</span>
-            </div>
-            <span id="kpi-lt-sub" class="hidden"></span>
           </div>
         </div>
-      </div>
-
-      <!-- Top 5 Trending Cards (Swipeable Carousel on Mobile, 5-Col Grid on Desktop) -->
-      <div class="space-y-2.5">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Top 5 Peluang Tertinggi</h2>
-          <button type="button" onclick="exportWatchlistCSV()" class="text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white inline-flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-            <span>Unduh CSV</span>
-          </button>
-        </div>
-        <div id="top5-spotlight" class="flex sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-1 sm:pb-0"></div>
       </div>
 
       <!-- Category Filter Tabs + Search Toolbar -->
-      <div class="bg-white dark:bg-zinc-900 rounded-lg p-3 sm:p-3.5 border border-zinc-200 dark:border-zinc-800 space-y-3">
+      <div class="bg-white dark:bg-zinc-900 rounded-lg p-3.5 sm:p-3.5 border border-zinc-200 dark:border-zinc-800 space-y-3">
         <!-- Category Row -->
         <div id="category-pills-bar" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5"></div>
 
         <!-- Search & Controls Row -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-2.5 border-t border-zinc-100 dark:border-zinc-800">
           <div class="flex flex-wrap items-center gap-2 flex-1">
-            <div class="relative flex-1 min-w-[180px] sm:max-w-sm">
-              <input type="text" id="f-search" oninput="onSearchInput()" placeholder="Cari skill (mis. RAG, Next.js, Rust)..." class="w-full pl-8 pr-3 py-1.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-500" />
-              <svg class="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <div class="relative w-full sm:w-auto sm:flex-1 sm:min-w-[180px] sm:max-w-sm">
+              <input type="text" id="f-search" oninput="onSearchInput()" placeholder="Cari skill (mis. RAG, Next.js, Rust)..." class="w-full pl-8 pr-3 py-2 sm:py-1.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-500" />
+              <svg class="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-2.5 sm:top-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </div>
 
-            <select id="f-quarter" onchange="onFilterChange()" class="rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 px-2.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 focus:outline-none focus:border-zinc-500"></select>
+            <select id="f-quarter" onchange="onFilterChange()" class="rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 px-2.5 py-2 sm:py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 focus:outline-none focus:border-zinc-500"></select>
 
             <select id="f-domain" onchange="onFilterChange()" class="hidden">
               <option value="ALL">Semua domain</option>
@@ -544,29 +513,33 @@
         </div>
       </div>
 
-      <!-- MASTER-DETAIL SPLIT VIEW: WATCHLIST TABLE (LEFT) + LIVE SKILL INSPECTOR (RIGHT) -->
+      <!-- MASTER-DETAIL SPLIT VIEW: WATCHLIST TABLE (LEFT) + INSPECTOR (RIGHT ON DESKTOP / BOTTOM SHEET ON MOBILE) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
 
         <!-- Left 7 Cols: Interactive Skill Table -->
         <div class="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+          <div class="lg:hidden px-3.5 py-2 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
+            <span>Ketuk baris skill untuk inspeksi cepat &amp; kurva tren</span>
+            <span class="font-mono text-zinc-400">&rsaquo;</span>
+          </div>
           <div class="overflow-x-auto custom-scrollbar">
             <table class="w-full text-left border-collapse">
               <thead>
                 <tr class="bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-[11px] font-mono font-semibold uppercase text-zinc-400">
-                  <th class="py-2.5 px-3 sm:px-3.5 w-9">#</th>
-                  <th class="py-2.5 px-3 sm:px-3.5">Skill TI</th>
-                  <th class="py-2.5 px-3 sm:px-3.5">Peluang Naik</th>
-                  <th class="py-2.5 px-3 sm:px-3.5 hidden sm:table-cell">Status</th>
-                  <th class="py-2.5 px-3 sm:px-3.5 hidden md:table-cell">Backtest H+2</th>
-                  <th class="py-2.5 px-3 sm:px-3.5">Loker</th>
-                  <th class="py-2.5 px-3 sm:px-3.5 text-right">Aksi</th>
+                  <th class="py-3 sm:py-2.5 px-3 sm:px-3.5 w-9 hidden sm:table-cell">#</th>
+                  <th class="py-3 sm:py-2.5 px-3.5">Skill TI</th>
+                  <th class="py-3 sm:py-2.5 px-3.5">Peluang Naik</th>
+                  <th class="py-3 sm:py-2.5 px-3.5 hidden sm:table-cell">Status</th>
+                  <th class="py-3 sm:py-2.5 px-3.5 hidden md:table-cell">Backtest H+2</th>
+                  <th class="py-3 sm:py-2.5 px-3.5">Loker</th>
+                  <th class="py-3 sm:py-2.5 px-3.5 text-right hidden sm:table-cell">Aksi</th>
                 </tr>
               </thead>
               <tbody id="watchlist-tbody" class="divide-y divide-zinc-100 dark:divide-zinc-800 text-xs"></tbody>
             </table>
           </div>
 
-          <div class="px-4 py-2.5 bg-zinc-50/70 dark:bg-zinc-950/60 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-2">
+          <div class="px-4 py-3 sm:py-2.5 bg-zinc-50/70 dark:bg-zinc-950/60 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-2">
             <div id="watchlist-summary-text" class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Menampilkan kandidat skill</div>
             <div class="flex items-center gap-2">
               <div id="watchlist-pages" class="flex items-center gap-1"></div>
@@ -575,9 +548,11 @@
           </div>
         </div>
 
-        <!-- Right 5 Cols: Sticky Instant Skill Inspector -->
-        <div id="live-skill-inspector" class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 sm:p-5 lg:sticky lg:top-20 space-y-4">
-          <!-- Populated dynamically when clicking any skill -->
+        <!-- Right 5 Cols: Desktop Sticky / Mobile Bottom-Sheet Quick Inspector -->
+        <div id="inspector-sheet" onclick="if(event.target===this) closeMobileInspector()" class="hidden lg:block fixed inset-0 z-50 lg:static lg:inset-auto lg:z-auto bg-zinc-950/60 lg:bg-transparent items-end sm:items-center justify-center p-0 sm:p-4 lg:p-0 lg:col-span-5">
+          <div id="live-skill-inspector" class="w-full sm:max-w-lg lg:max-w-none max-h-[86vh] lg:max-h-none overflow-y-auto lg:overflow-visible bg-white dark:bg-zinc-900 rounded-t-2xl sm:rounded-xl lg:rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 sm:p-5 lg:sticky lg:top-20 space-y-4 shadow-xl lg:shadow-none">
+            <!-- Populated dynamically when clicking any skill -->
+          </div>
         </div>
 
       </div>
@@ -586,7 +561,7 @@
     <!-- =================================================================
          VIEW 2: DETAIL TREN & EKOSISTEM SKILL
          ================================================================= -->
-    <section id="view-v2" class="view-section space-y-5">
+    <section id="view-v2" class="view-section space-y-6">
       <!-- Skill Header Bar -->
       <div class="flex flex-wrap items-end justify-between gap-4 pb-1">
         <div class="space-y-1">
@@ -601,77 +576,42 @@
         </div>
 
         <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          <select id="v2-skill-select" onchange="onSelectSkill(this.value)" class="flex-1 sm:flex-none rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-900 dark:text-white"></select>
-          <button type="button" onclick="switchView('v4')" class="px-3.5 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 inline-flex items-center gap-1.5 transition-colors">
+          <select id="v2-skill-select" onchange="onSelectSkill(this.value)" class="flex-1 sm:flex-none rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-2 sm:py-1.5 text-xs font-semibold text-zinc-900 dark:text-white"></select>
+          <button type="button" onclick="switchView('v4')" class="px-3.5 py-2 sm:py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 inline-flex items-center gap-1.5 transition-colors">
             <span>Bukti Loker</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </button>
         </div>
       </div>
 
-      <!-- 4 Visual Signal Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-200">Pertumbuhan Loker</span>
-            <span id="sp-val-1" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100">+0,00</span>
+      <!-- LEVEL 1: HERO CROSS-SCOPE CHART + MARKET POSITION -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <!-- Cross-Scope Dual-Line Comparison Chart (8 cols) -->
+        <div id="v2-cross-card" class="lg:col-span-8 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h2 class="font-display font-semibold text-sm sm:text-base text-zinc-900 dark:text-white">Perbandingan Lintas Pasar: Indonesia vs Global</h2>
+              <p id="v2-cross-insight" class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Arahkan kursor atau sentuh grafik untuk membandingkan pangsa lowongan per kuartal.</p>
+            </div>
+            <div class="flex items-center gap-3 text-xs font-mono">
+              <span class="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300"><span class="w-2.5 h-0.5 bg-blue-600 inline-block"></span>Indonesia</span>
+              <span class="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300"><span class="w-2.5 h-0.5 bg-emerald-600 inline-block"></span>Global</span>
+              <span id="v2-cross-switch-wrap"></span>
+            </div>
           </div>
-          <div id="sp-svg-1"></div>
+          <div id="v2-cross-svg" class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800"></div>
         </div>
 
-        <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-200">Akselerasi Tren</span>
-            <span id="sp-val-2" class="font-mono font-semibold text-xs text-emerald-600 dark:text-emerald-400">1,00×</span>
-          </div>
-          <div id="sp-svg-2"></div>
-        </div>
-
-        <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-200">Koneksi Ekosistem</span>
-            <span id="sp-val-3" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100">0,00</span>
-          </div>
-          <div id="sp-svg-3"></div>
-        </div>
-
-        <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-semibold text-zinc-700 dark:text-zinc-200">Sebaran Profesi</span>
-            <span id="sp-val-4" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100">0,000</span>
-          </div>
-          <div id="sp-svg-4"></div>
-        </div>
-      </div>
-
-      <!-- Cross-Scope Dual-Line Comparison Chart (Indonesia vs Global) -->
-      <div id="v2-cross-card" class="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Perbandingan Lintas Pasar: Indonesia vs Global</h3>
-            <p id="v2-cross-insight" class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Arahkan kursor atau sentuh grafik untuk membandingkan pangsa lowongan per kuartal.</p>
-          </div>
-          <div class="flex items-center gap-3 text-xs font-mono">
-            <span class="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300"><span class="w-2.5 h-0.5 bg-blue-600 inline-block"></span>Indonesia</span>
-            <span class="inline-flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300"><span class="w-2.5 h-0.5 bg-emerald-600 inline-block"></span>Global</span>
-            <span id="v2-cross-switch-wrap"></span>
-          </div>
-        </div>
-        <div id="v2-cross-svg" class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800"></div>
-      </div>
-
-      <!-- Position Gauge + Ecosystem Network + Role Bars -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         <!-- Market Share Gauge (4 cols) -->
-        <div class="lg:col-span-4 bg-white dark:bg-zinc-900 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Posisi Menuju Tren Utama</h3>
-            <div class="p-4 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+        <div class="lg:col-span-4 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-4">
+          <div class="space-y-3.5">
+            <h3 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Posisi Menuju Tren Utama</h3>
+            <div class="space-y-2">
               <div class="flex justify-between text-xs font-medium">
                 <span>Pangsa (<span id="v2-gauge-q">2026-Q4</span>)</span>
                 <span id="v2-gauge-share" class="font-mono font-semibold text-zinc-900 dark:text-zinc-100">3,50%</span>
               </div>
-              <div class="h-2.5 bg-zinc-200 dark:bg-zinc-800 rounded overflow-hidden">
+              <div class="h-2.5 bg-zinc-100 dark:bg-zinc-800 rounded overflow-hidden">
                 <div id="v2-gauge-bar" class="h-full bg-blue-600 dark:bg-blue-500 rounded" style="width:40%"></div>
               </div>
               <div class="flex justify-between font-mono text-[10px] text-zinc-400">
@@ -681,32 +621,81 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-2.5">
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
+            <div class="grid grid-cols-2 divide-x divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-100 dark:border-zinc-800 py-2.5">
+              <div class="pr-3">
                 <div class="text-[11px] text-zinc-500 font-medium">Rerata 1 Tahun</div>
                 <div id="v2-stat-r4" class="font-mono font-bold text-lg text-zinc-900 dark:text-white mt-0.5">2,85%</div>
               </div>
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
+              <div class="pl-3">
                 <div class="text-[11px] text-zinc-500 font-medium">Rekor Tertinggi</div>
                 <div id="v2-stat-cm" class="font-mono font-bold text-lg text-zinc-900 dark:text-white mt-0.5">4,10%</div>
               </div>
             </div>
           </div>
-          <div id="v2-leadtime-note" class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed"></div>
+          <div id="v2-leadtime-note" class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed"></div>
         </div>
+      </div>
 
-        <!-- Companion Skills Network (4 cols) -->
-        <div class="lg:col-span-4 bg-white dark:bg-zinc-900 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Pasangan Skill Terkuat</h3>
-          <div id="cooc-svg-container" class="bg-zinc-50 dark:bg-zinc-950 rounded-md border border-zinc-200 dark:border-zinc-800 p-2 text-center"></div>
-          <div class="overflow-x-auto">
+      <!-- LEVEL 2: 4 SIGNAL SPARKLINES (2x2 on Mobile, 4-Cols on Desktop) -->
+      <div class="space-y-2.5">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">4 Sinyal Pembentuk Skor AI (Kuartalan)</h3>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="bg-white dark:bg-zinc-900 rounded-lg p-3.5 sm:p-4 border border-zinc-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between gap-1 mb-2">
+              <span class="text-[11px] sm:text-xs font-semibold text-zinc-700 dark:text-zinc-200 truncate">Pertumbuhan Loker</span>
+              <span id="sp-val-1" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 shrink-0">+0,00</span>
+            </div>
+            <div id="sp-svg-1"></div>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 rounded-lg p-3.5 sm:p-4 border border-zinc-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between gap-1 mb-2">
+              <span class="text-[11px] sm:text-xs font-semibold text-zinc-700 dark:text-zinc-200 truncate">Akselerasi Tren</span>
+              <span id="sp-val-2" class="font-mono font-semibold text-xs text-emerald-600 dark:text-emerald-400 shrink-0">1,00×</span>
+            </div>
+            <div id="sp-svg-2"></div>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 rounded-lg p-3.5 sm:p-4 border border-zinc-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between gap-1 mb-2">
+              <span class="text-[11px] sm:text-xs font-semibold text-zinc-700 dark:text-zinc-200 truncate">Koneksi Ekosistem</span>
+              <span id="sp-val-3" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 shrink-0">0,00</span>
+            </div>
+            <div id="sp-svg-3"></div>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 rounded-lg p-3.5 sm:p-4 border border-zinc-200 dark:border-zinc-800">
+            <div class="flex items-center justify-between gap-1 mb-2">
+              <span class="text-[11px] sm:text-xs font-semibold text-zinc-700 dark:text-zinc-200 truncate">Sebaran Profesi</span>
+              <span id="sp-val-4" class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 shrink-0">0,000</span>
+            </div>
+            <div id="sp-svg-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVEL 3: ECOSYSTEM NETWORK (GRAPH/TABLE TOGGLE) + ROLE DIFFUSION (6:6 SPLIT) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <!-- Companion Skills Network (6 cols) -->
+        <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Pasangan Skill Terkuat</h3>
+            <div class="inline-flex p-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-[11px] font-medium">
+              <button type="button" id="cooc-tab-graph" onclick="setCoocTab('graph')" class="px-2.5 py-0.5 rounded bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm">Graf</button>
+              <button type="button" id="cooc-tab-table" onclick="setCoocTab('table')" class="px-2.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Tabel</button>
+            </div>
+          </div>
+          <div id="cooc-panel-graph">
+            <div id="cooc-svg-container" class="bg-zinc-50 dark:bg-zinc-950 rounded-md border border-zinc-200 dark:border-zinc-800 p-2 text-center"></div>
+          </div>
+          <div id="cooc-panel-table" class="hidden overflow-x-auto">
             <table class="w-full text-left text-xs">
               <thead>
                 <tr class="border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-400 uppercase">
-                  <th class="py-1.5 px-2">Skill</th>
-                  <th class="py-1.5 px-2">Koneksi</th>
-                  <th class="py-1.5 px-2">Loker</th>
-                  <th class="py-1.5 px-2">Tren</th>
+                  <th class="py-2 px-2">Skill</th>
+                  <th class="py-2 px-2">Koneksi</th>
+                  <th class="py-2 px-2">Loker</th>
+                  <th class="py-2 px-2">Tren</th>
                 </tr>
               </thead>
               <tbody id="cooc-tbody" class="divide-y divide-zinc-100 dark:divide-zinc-800"></tbody>
@@ -714,13 +703,13 @@
           </div>
         </div>
 
-        <!-- Role Diffusion (4 cols) -->
-        <div class="lg:col-span-4 bg-white dark:bg-zinc-900 rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <div class="flex items-center justify-between">
-            <h3 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Profesi yang Membutuhkan</h3>
+        <!-- Role Diffusion (6 cols) -->
+        <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <h3 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Profesi yang Membutuhkan</h3>
             <span id="v2-role-entropy-pill" class="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium">Sebaran: 0,58</span>
           </div>
-          <div id="role-bars-container" class="space-y-2.5 pt-1"></div>
+          <div id="role-bars-container" class="space-y-3 pt-1"></div>
         </div>
       </div>
     </section>
@@ -729,77 +718,98 @@
          VIEW 4: BUKTI LOKER & ALASAN AI (JOB BOARD + SHAP)
          ================================================================= -->
     <section id="view-v4" class="view-section space-y-5">
-      <div class="flex flex-wrap items-end justify-between gap-4 pb-1">
-        <div>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-1">
+        <div class="space-y-1">
           <h1 id="v4-title" class="font-display font-bold text-xl sm:text-2xl tracking-tight text-zinc-900 dark:text-white">Bukti Lowongan Kerja &amp; Alasan AI</h1>
-          <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">Telusuri iklan lowongan kerja asli yang mencantumkan skill ini beserta faktor pendorong skor AI-nya.</p>
+          <p id="v4-quick-summary" class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">Telusuri iklan lowongan kerja asli dan bedah kontribusi skor AI untuk skill terpilih.</p>
         </div>
-        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          <select id="v4-skill-select" onchange="onSelectSkill(this.value)" class="flex-1 sm:flex-none rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-zinc-900 dark:text-white"></select>
-          <select id="v4-algo-select" onchange="renderView4()" class="rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
-            <option value="RF" selected>Model: Random Forest</option>
-            <option value="LGBM">Model: LightGBM</option>
-          </select>
+        <div class="w-full sm:w-auto">
+          <select id="v4-skill-select" onchange="onSelectSkill(this.value)" class="w-full sm:w-auto rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-2 sm:py-1.5 text-xs font-semibold text-zinc-900 dark:text-white"></select>
         </div>
       </div>
 
-      <!-- Job Board Explorer First -->
-      <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-4">
+      <!-- Focused Sub-Tab Switcher (Separates Job Provenance from Math/SHAP) -->
+      <div class="inline-flex w-full sm:w-auto p-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">
+        <button type="button" id="v4-tab-jobs" onclick="setV4SubTab('jobs')" class="flex-1 sm:flex-none px-3.5 py-1.5 rounded-md bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white font-semibold shadow-sm transition-colors">
+          1. Bukti Iklan Loker (<span id="v4-job-count">0</span>)
+        </button>
+        <button type="button" id="v4-tab-shap" onclick="setV4SubTab('shap')" class="flex-1 sm:flex-none px-3.5 py-1.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+          2. Bedah Skor AI (SHAP)
+        </button>
+      </div>
+
+      <!-- SUB-VIEW 1: JOB BOARD EXPLORER -->
+      <div id="v4-panel-jobs" class="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h2 class="font-display font-bold text-base text-zinc-900 dark:text-white">Bukti Iklan Lowongan Kerja Asli</h2>
+            <h2 class="font-display font-bold text-sm sm:text-base text-zinc-900 dark:text-white">Bukti Iklan Lowongan Kerja Asli</h2>
             <p class="text-xs text-zinc-500 dark:text-zinc-400">Ketuk baris lowongan untuk melihat rincian posisi dan kombinasi skill yang diminta perusahaan.</p>
           </div>
-          <select id="v4-role-filter" onchange="renderProvenanceTable()" class="w-full sm:w-auto rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
+          <select id="v4-role-filter" onchange="renderProvenanceTable()" class="w-full sm:w-auto rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
             <option value="ALL">Semua Profesi TI</option>
           </select>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-          <div class="lg:col-span-7 overflow-x-auto max-h-[380px] sm:max-h-[420px] custom-scrollbar border border-zinc-200 dark:border-zinc-800 rounded-md">
+          <div class="lg:col-span-7 overflow-x-auto max-h-[420px] custom-scrollbar border border-zinc-200 dark:border-zinc-800 rounded-md">
             <table class="w-full text-left border-collapse text-xs">
               <thead class="sticky top-0 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono uppercase text-zinc-400">
                 <tr>
-                  <th class="py-2.5 px-3">ID</th>
-                  <th class="py-2.5 px-3">Waktu</th>
-                  <th class="py-2.5 px-3">Posisi &amp; Perusahaan</th>
-                  <th class="py-2.5 px-3 hidden sm:table-cell">Profesi</th>
-                  <th class="py-2.5 px-3">Skill Lain</th>
+                  <th class="py-3 sm:py-2.5 px-3 hidden sm:table-cell">ID</th>
+                  <th class="py-3 sm:py-2.5 px-3">Waktu</th>
+                  <th class="py-3 sm:py-2.5 px-3">Posisi &amp; Perusahaan</th>
+                  <th class="py-3 sm:py-2.5 px-3 hidden sm:table-cell">Profesi</th>
+                  <th class="py-3 sm:py-2.5 px-3 hidden md:table-cell">Skill Lain</th>
                 </tr>
               </thead>
               <tbody id="prov-tbody" class="divide-y divide-zinc-100 dark:divide-zinc-800"></tbody>
             </table>
           </div>
 
-          <div id="prov-detail-box" class="lg:col-span-5 bg-zinc-50 dark:bg-zinc-950 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 lg:sticky lg:top-20"></div>
+          <!-- Desktop Sticky / Mobile Bottom-Sheet Job Detail -->
+          <div id="prov-sheet" onclick="if(event.target===this) closeMobileProvDetail()" class="hidden lg:block fixed inset-0 z-50 lg:static lg:inset-auto lg:z-auto bg-zinc-950/60 lg:bg-transparent items-end sm:items-center justify-center p-0 sm:p-4 lg:p-0 lg:col-span-5">
+            <div id="prov-detail-box" class="w-full sm:max-w-lg lg:max-w-none max-h-[82vh] lg:max-h-none overflow-y-auto lg:overflow-visible bg-white lg:bg-zinc-50 dark:bg-zinc-900 lg:dark:bg-zinc-950 rounded-t-2xl sm:rounded-xl lg:rounded-lg p-5 border border-zinc-200 dark:border-zinc-800 lg:sticky lg:top-20 shadow-xl lg:shadow-none"></div>
+          </div>
         </div>
       </div>
 
-      <!-- AI Score Breakdown (SHAP Waterfall) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <div class="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <div class="flex flex-wrap items-center justify-between gap-2">
+      <!-- SUB-VIEW 2: AI SCORE BREAKDOWN (SHAP WATERFALL) -->
+      <div id="v4-panel-shap" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <div class="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3.5">
+          <div class="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <h2 class="font-display font-bold text-base text-zinc-900 dark:text-white">Dekomposisi Skor Prediksi (SHAP)</h2>
-              <p class="text-xs text-zinc-500 dark:text-zinc-400"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Hijau</span> menaikkan peluang &middot; <span class="text-rose-600 dark:text-rose-400 font-semibold">Merah</span> menurunkan peluang</p>
+              <h2 class="font-display font-bold text-sm sm:text-base text-zinc-900 dark:text-white">Dekomposisi Skor Prediksi (SHAP)</h2>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5"><span class="text-emerald-600 dark:text-emerald-400 font-semibold">Hijau</span> menaikkan peluang &middot; <span class="text-rose-600 dark:text-rose-400 font-semibold">Merah</span> menurunkan peluang</p>
             </div>
-            <span id="v4-eq-pill" class="text-[11px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2.5 py-1 rounded"></span>
+            <select id="v4-algo-select" onchange="renderView4()" class="rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-2.5 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
+              <option value="RF" selected>Model: Random Forest</option>
+              <option value="LGBM">Model: LightGBM</option>
+            </select>
           </div>
+          <div id="v4-eq-pill" class="text-[11px] font-mono bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 px-3 py-1.5 rounded inline-block"></div>
           <div id="shap-waterfall-container"></div>
         </div>
 
-        <div class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-4">
+        <div class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-4">
           <div>
             <div id="v4-decision-badge" class="mb-2"></div>
             <div id="v4-prob-big" class="font-mono font-bold text-2xl text-zinc-900 dark:text-white">Peluang = 68,4%</div>
             <div id="v4-margin-text" class="text-xs text-zinc-500 dark:text-zinc-400 mt-1"></div>
-
-            <div class="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-800">
-              <div class="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 mb-2">Bobot Pengaruh Sinyal Secara Global:</div>
-              <div id="global-shap-bars"></div>
-            </div>
           </div>
-          <div id="v4-global-shap-note" class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300"></div>
+
+          <!-- Progressive Disclosure for Model-Global SHAP -->
+          <details class="group border-t border-zinc-100 dark:border-zinc-800 pt-3">
+            <summary class="list-none cursor-pointer flex items-center justify-between text-xs font-semibold text-zinc-700 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white">
+              <span>Bobot Pengaruh Sinyal Secara Global (Rata-rata Model)</span>
+              <span class="font-mono text-zinc-400 group-open:rotate-180 transition-transform">&darr;</span>
+            </summary>
+            <div class="mt-3 space-y-3">
+              <div id="global-shap-bars"></div>
+              <div id="v4-global-shap-note" class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300"></div>
+            </div>
+          </details>
+        </div>
         </div>
       </div>
     </section>
@@ -813,79 +823,118 @@
         <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">Perbandingan performa 5 kombinasi fitur × 4 algoritma Machine Learning pada skema Walk-Forward Validation.</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <div class="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <h2 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Matriks PR-AUC (Ketuk sel untuk detail)</h2>
-          <div class="overflow-x-auto">
-            <table id="ablation-heatmap" class="heatmap-table"></table>
-          </div>
-        </div>
+      <!-- Focused Sub-Tab Switcher (Separates Ablation Benchmark from Lead Time & Fold Mechanics) -->
+      <div class="inline-flex w-full sm:w-auto p-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-medium">
+        <button type="button" id="v3-tab-ablation" onclick="setV3SubTab('ablation')" class="flex-1 sm:flex-none px-3.5 py-1.5 rounded-md bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white font-semibold shadow-sm transition-colors">
+          1. Benchmark Ablasi &amp; Statistik
+        </button>
+        <button type="button" id="v3-tab-leadtime" onclick="setV3SubTab('leadtime')" class="flex-1 sm:flex-none px-3.5 py-1.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+          2. Lead Time &amp; Walk-Forward
+        </button>
+      </div>
 
-        <div class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-4">
-          <div>
-            <h2 id="v3-sel-title" class="font-display font-bold text-lg text-zinc-900 dark:text-white">M4 · Random Forest</h2>
-            <p id="v3-sel-sub" class="text-xs text-zinc-500 dark:text-zinc-400"></p>
-            <div class="grid grid-cols-2 gap-2.5 mt-3">
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-                <div class="text-[10px] font-mono text-zinc-400">PR-AUC (OOS)</div>
-                <div id="v3-m-ap" class="font-mono font-bold text-xl text-zinc-900 dark:text-white">0,7229</div>
-                <div id="v3-m-valap" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
-              </div>
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-                <div class="text-[10px] font-mono text-zinc-400">ROC-AUC</div>
-                <div id="v3-m-roc" class="font-mono font-bold text-xl text-zinc-900 dark:text-white">0,6964</div>
-                <div id="v3-m-f1" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
-              </div>
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-                <div class="text-[10px] font-mono text-zinc-400">PRECISION@5</div>
-                <div id="v3-m-p5" class="font-mono font-bold text-xl text-emerald-600 dark:text-emerald-400">90,0%</div>
-                <div id="v3-m-p10" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
-              </div>
-              <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-                <div class="text-[10px] font-mono text-zinc-400">CONFUSION MATRIX</div>
-                <div id="v3-m-cm" class="font-mono text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-1"></div>
-                <div id="v3-m-cm2" class="font-mono text-[11px] text-zinc-500 dark:text-zinc-400"></div>
-              </div>
+      <!-- SUB-VIEW 1: ABLATION MATRIX & SELECTED METRICS -->
+      <div id="v3-panel-ablation">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <div class="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
+            <h2 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Matriks PR-AUC (Ketuk sel untuk detail)</h2>
+            <div class="overflow-x-auto">
+              <table id="ablation-heatmap" class="heatmap-table"></table>
             </div>
           </div>
-          <div id="v3-hac-box" class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300"></div>
+
+          <div class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-4">
+            <div>
+              <h2 id="v3-sel-title" class="font-display font-bold text-lg text-zinc-900 dark:text-white">M4 · Random Forest</h2>
+              <p id="v3-sel-sub" class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5"></p>
+            </div>
+
+            <!-- 3 Primary Benchmark Metrics -->
+            <div class="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-100 dark:border-zinc-800 py-3">
+              <div class="pr-2.5">
+                <div class="text-[10px] font-mono text-zinc-400">PR-AUC</div>
+                <div id="v3-m-ap" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white mt-0.5">0,7229</div>
+                <div id="v3-m-valap" class="text-[10px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-tight"></div>
+              </div>
+              <div class="px-2.5">
+                <div class="text-[10px] font-mono text-zinc-400">ROC-AUC</div>
+                <div id="v3-m-roc" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white mt-0.5">0,6964</div>
+                <div id="v3-m-f1" class="text-[10px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-tight"></div>
+              </div>
+              <div class="pl-2.5">
+                <div class="text-[10px] font-mono text-zinc-400">PRECISION@5</div>
+                <div id="v3-m-p5" class="font-mono font-bold text-lg sm:text-xl text-emerald-600 dark:text-emerald-400 mt-0.5">90,0%</div>
+                <div id="v3-m-p10" class="text-[10px] text-zinc-500 dark:text-zinc-400 mt-0.5 leading-tight"></div>
+              </div>
+            </div>
+
+            <!-- Progressive Disclosure: Technical Confusion Matrix + Newey-West HAC -->
+            <details class="group">
+              <summary class="list-none cursor-pointer flex items-center justify-between text-xs font-semibold text-zinc-700 dark:text-zinc-200 hover:text-zinc-900 dark:hover:text-white">
+                <span>Confusion Matrix &amp; Uji Statistik HAC</span>
+                <span class="font-mono text-zinc-400 group-open:rotate-180 transition-transform">&darr;</span>
+              </summary>
+              <div class="mt-3 space-y-2.5">
+                <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
+                  <div class="text-[10px] font-mono text-zinc-400">CONFUSION MATRIX (AKUMULASI FOLD)</div>
+                  <div id="v3-m-cm" class="font-mono text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-1"></div>
+                  <div id="v3-m-cm2" class="font-mono text-[11px] text-zinc-500 dark:text-zinc-400"></div>
+                </div>
+                <div id="v3-hac-box" class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300"></div>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <h2 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Kecepatan Deteksi Dini (Lead Time)</h2>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[10px] font-mono text-zinc-500 font-semibold">SEBELUM TEMBUS TARGET</div>
-              <div id="v3-lt-first-val" class="font-mono font-bold text-xl text-zinc-900 dark:text-white my-0.5">1,45 kuartal</div>
-              <div id="v3-lt-first-desc" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
+      <!-- SUB-VIEW 2: EARLY DETECTION LEAD TIME + WALK-FORWARD MECHANICS -->
+      <div id="v3-panel-leadtime" class="hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3.5">
+            <h2 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Kecepatan Deteksi Dini (Lead Time)</h2>
+            <div class="grid grid-cols-2 divide-x divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-100 dark:border-zinc-800 py-2.5">
+              <div class="pr-3">
+                <div class="text-[10px] font-mono text-zinc-500 font-semibold">SEBELUM TEMBUS TARGET</div>
+                <div id="v3-lt-first-val" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white my-0.5">1,45 kuartal</div>
+                <div id="v3-lt-first-desc" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
+              </div>
+              <div class="pl-3">
+                <div class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">MENUJU PUNCAK (H=2)</div>
+                <div id="v3-lt-peak-val" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white my-0.5">1,60 kuartal</div>
+                <div id="v3-lt-peak-desc" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
+              </div>
             </div>
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">MENUJU PUNCAK (H=2)</div>
-              <div id="v3-lt-peak-val" class="font-mono font-bold text-xl text-zinc-900 dark:text-white my-0.5">1,60 kuartal</div>
-              <div id="v3-lt-peak-desc" class="text-[11px] text-zinc-500 dark:text-zinc-400"></div>
+            <div class="max-h-60 overflow-y-auto custom-scrollbar border border-zinc-200 dark:border-zinc-800 rounded-md">
+              <table class="w-full text-left text-xs">
+                <thead class="sticky top-0 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-400">
+                  <tr>
+                    <th class="py-2 px-3">Skill</th>
+                    <th class="py-2 px-3">Sinyal</th>
+                    <th class="py-2 px-3">Tembus</th>
+                    <th class="py-2 px-3">Lead Time</th>
+                  </tr>
+                </thead>
+                <tbody id="leadtime-tbody" class="divide-y divide-zinc-100 dark:divide-zinc-800"></tbody>
+              </table>
             </div>
           </div>
-          <div class="max-h-52 overflow-y-auto custom-scrollbar border border-zinc-200 dark:border-zinc-800 rounded-md">
-            <table class="w-full text-left text-xs">
-              <thead class="sticky top-0 bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-400">
-                <tr>
-                  <th class="py-2 px-3">Skill</th>
-                  <th class="py-2 px-3">Sinyal</th>
-                  <th class="py-2 px-3">Tembus</th>
-                  <th class="py-2 px-3">Lead Time</th>
-                </tr>
-              </thead>
-              <tbody id="leadtime-tbody" class="divide-y divide-zinc-100 dark:divide-zinc-800"></tbody>
-            </table>
-          </div>
-        </div>
 
-        <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3">
-          <h2 class="font-display font-semibold text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Skema Walk-Forward (Bebas Kebocoran Data)</h2>
-          <div id="wf-schedule-container"></div>
-          <div id="wf-fold-svg" class="pt-2"></div>
+          <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-3.5">
+            <div class="flex items-center justify-between gap-2">
+              <h2 class="font-display font-semibold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Skema Walk-Forward</h2>
+              <div class="inline-flex p-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-[11px] font-medium">
+                <button type="button" id="wf-tab-schedule" onclick="setWfTab('schedule')" class="px-2.5 py-0.5 rounded bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm">Jadwal</button>
+                <button type="button" id="wf-tab-chart" onclick="setWfTab('chart')" class="px-2.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white">Grafik AP</button>
+              </div>
+            </div>
+            <div id="wf-panel-schedule">
+              <div id="wf-schedule-container"></div>
+            </div>
+            <div id="wf-panel-chart" class="hidden">
+              <div id="wf-fold-svg" class="pt-1"></div>
+              <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-2">Perbandingan nilai Average Precision per fold antara <span class="font-semibold">M1 Baseline</span> (abu-abu) dan <span class="font-semibold text-blue-600 dark:text-blue-400">M4 Lengkap</span> (biru).</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -894,7 +943,7 @@
 
   <!-- ================= EDITORIAL FOOTER ================= -->
   <footer class="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 pb-20 md:pb-8">
-    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 text-xs text-zinc-500 dark:text-zinc-400">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 text-xs text-zinc-500 dark:text-zinc-400">
       <div class="md:col-span-5 space-y-2">
         <div class="flex items-center gap-2">
           <span class="font-display font-bold text-sm text-zinc-900 dark:text-white">SINYAL EarlySkill-ID</span>
@@ -931,7 +980,7 @@
         </div>
       </div>
     </div>
-    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 pt-4 border-t border-zinc-100 dark:border-zinc-900 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-400">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-4 border-t border-zinc-100 dark:border-zinc-900 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-zinc-400">
       <span>SINYAL EarlySkill-ID · Sistem Deteksi Dini Skill TI</span>
       <span>Evaluasi Walk-Forward M1–M4 &amp; Realisasi H+2</span>
     </div>
@@ -1234,7 +1283,21 @@ function initApp() {
   renderAll();
 }
 
+function toggleMobileSheet(sheetId, open) {
+  const sheet = document.getElementById(sheetId);
+  if (!sheet) return;
+  sheet.classList.toggle('hidden', !open);
+  sheet.classList.toggle('flex', !!open);
+}
+
+function openMobileInspector() { toggleMobileSheet('inspector-sheet', true); }
+function closeMobileInspector() { toggleMobileSheet('inspector-sheet', false); }
+function openMobileProvDetail() { toggleMobileSheet('prov-sheet', true); }
+function closeMobileProvDetail() { toggleMobileSheet('prov-sheet', false); }
+
 function switchView(v) {
+  closeMobileInspector();
+  closeMobileProvDetail();
   STATE.view = v;
   ['v0','v1','v2','v3','v4'].forEach(id => {
     const sec = document.getElementById('view-' + id);
@@ -1310,15 +1373,13 @@ function onSelectSkill(skillName, goToView) {
   document.getElementById('v4-skill-select').value = skillName;
   STATE.selectedProvIndex = 0;
   if (goToView) {
+    closeMobileInspector();
     switchView(goToView);
   } else {
     renderAll();
-    // On mobile screens, smoothly scroll to the inspector card when selecting a skill in v1
+    // On mobile/tablet (< lg), open quick inspector bottom sheet when selecting a skill in Radar
     if (STATE.view === 'v1' && window.innerWidth && window.innerWidth < 1024) {
-      const insp = document.getElementById('live-skill-inspector');
-      if (insp && insp.scrollIntoView) {
-        insp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+      openMobileInspector();
     }
   }
 }
@@ -1706,22 +1767,11 @@ function renderLiveSkillInspector() {
   const quarters = DATA.meta.quarters_all;
 
   const coocKey = `${sk}|${STATE.quarter}`;
-  const coocList = (DATA.cooc[coocKey] || DATA.cooc[`${sk}|2026-Q3`] || DATA.cooc[`${sk}|2025-Q4`] || []).slice(0, 4);
-  const jobs = (DATA.provenance[sk] || []).slice(0, 2);
+  const coocList = (DATA.cooc[coocKey] || DATA.cooc[`${sk}|2026-Q3`] || DATA.cooc[`${sk}|2025-Q4`] || []).slice(0, 5);
 
   const partnerChips = coocList.map(c =>
-    `<span class="px-2 py-0.5 rounded text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">${c[0]}</span>`
+    `<span class="px-2 py-0.5 rounded text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">${c[0]}</span>`
   ).join('');
-
-  const jobCards = jobs.map(j => `
-    <div onclick="switchView('v4')" class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 cursor-pointer transition-colors">
-      <div class="flex items-center justify-between text-[11px] text-zinc-400 font-mono">
-        <span>${j.company}</span>
-        <span>${j.quarter}</span>
-      </div>
-      <div class="font-semibold text-xs text-zinc-900 dark:text-zinc-100 mt-0.5 truncate">${j.title}</div>
-    </div>
-  `).join('');
 
   const statusBadgeHtml = isWarn
     ? `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">Bakal Naik</span>`
@@ -1730,27 +1780,25 @@ function renderLiveSkillInspector() {
   const cross = getCrossScopeInfo(sk, STATE.quarter);
 
   const dualChartHtml = buildDualScopeSVG(sk, { width: 280, height: 88 });
-  const crossCardHtml = cross ? `
-    <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2">
+  const chartSectionHtml = cross ? `
+    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-2.5">
       <div class="flex items-center justify-between gap-2">
-        <span class="text-[11px] font-semibold text-zinc-700 dark:text-zinc-300">Perbandingan Indonesia vs Global</span>
-        <div class="flex items-center gap-2 text-[10px] font-mono">
+        <span class="text-[11px] font-semibold text-zinc-700 dark:text-zinc-300">Tren Indonesia vs Global</span>
+        <div class="flex items-center gap-2.5 text-[10px] font-mono">
           <span class="inline-flex items-center gap-1 text-zinc-500"><span class="w-2 h-0.5 bg-blue-600 inline-block"></span>ID</span>
           <span class="inline-flex items-center gap-1 text-zinc-500"><span class="w-2 h-0.5 bg-emerald-600 inline-block"></span>GL</span>
         </div>
       </div>
       ${dualChartHtml}
       ${cross.otherItem ? `
-      <div class="grid grid-cols-2 gap-2 text-xs">
-        <div class="p-2 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <div class="text-[10px] font-mono text-zinc-400 uppercase">${cross.curLabel} · ${STATE.quarter}</div>
-          <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${item.sh.toFixed(2).replace('.', ',')}% <span class="text-zinc-400 font-normal">(${item.c})</span></div>
-          <div class="text-[10px] font-mono text-zinc-500">AI: ${probPct}%</div>
+      <div class="grid grid-cols-2 gap-3 pt-2 border-t border-zinc-200/80 dark:border-zinc-800 text-[11px]">
+        <div>
+          <span class="font-mono text-[10px] text-zinc-400 uppercase">${cross.curLabel} · ${STATE.quarter}</span>
+          <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100">${item.sh.toFixed(2).replace('.', ',')}% <span class="text-zinc-400 font-normal">(${item.c} loker)</span></div>
         </div>
-        <div class="p-2 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <div class="text-[10px] font-mono text-zinc-400 uppercase">${cross.otherLabel} · ${cross.matchQ}</div>
-          <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${cross.otherItem.sh.toFixed(2).replace('.', ',')}% <span class="text-zinc-400 font-normal">(${cross.otherItem.c})</span></div>
-          <div class="text-[10px] font-mono text-zinc-500">${cross.statusNote}</div>
+        <div>
+          <span class="font-mono text-[10px] text-zinc-400 uppercase">${cross.otherLabel} · ${cross.matchQ}</span>
+          <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100">${cross.otherItem.sh.toFixed(2).replace('.', ',')}% <span class="text-zinc-400 font-normal">(${cross.otherItem.c} loker)</span></div>
         </div>
       </div>` : ''}
       <div class="flex items-center justify-between gap-2 pt-0.5">
@@ -1758,75 +1806,79 @@ function renderLiveSkillInspector() {
         ${cross.otherItem ? `<button type="button" onclick="switchScopePreserveSkill('${cross.otherKey}')" class="shrink-0 text-[11px] font-mono font-semibold text-blue-600 dark:text-blue-400 hover:underline">Buka ${cross.otherLabel}</button>` : ''}
       </div>
     </div>
-  ` : '';
-
-  box.innerHTML = `
-    <div class="flex items-start justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800 pb-3.5">
-      <div>
-        <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">${item.d} &middot; ${STATE.quarter}</div>
-        <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight text-zinc-900 dark:text-white mt-0.5">${sk}</h3>
-        <span class="text-xs text-zinc-500 dark:text-zinc-400">Muncul di <strong class="text-zinc-800 dark:text-zinc-200">${item.c} lowongan</strong></span>
-      </div>
-      <div class="text-right space-y-1">
-        <div class="font-mono font-bold text-xl sm:text-2xl ${isWarn ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-800 dark:text-zinc-200'}">${probPct}%</div>
-        <div class="flex flex-wrap justify-end gap-1">${statusBadgeHtml}${backtestHtml}</div>
-      </div>
-    </div>
-
-    <!-- Mini Trend Chart inside Inspector -->
-    <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
+  ` : `
+    <div class="p-3 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
       <div class="flex items-center justify-between text-xs">
         <span class="font-medium text-zinc-700 dark:text-zinc-300">Tren Pangsa Lowongan</span>
         <span class="font-mono font-semibold text-zinc-900 dark:text-zinc-100">${item.sh.toFixed(2).replace('.', ',')}% pasar</span>
       </div>
       ${buildSparklineSVG(tr.sh, quarters, null, '#2563EB', { unit: '%', decimals: 2, counts: tr.c })}
     </div>
+  `;
 
-    ${crossCardHtml}
+  const driverSummary = (() => {
+    const drivers = [];
+    if (item.f[0] > 0.3) drivers.push(`lonjakan QoQ (+${item.f[0].toFixed(2).replace('.', ',')})`);
+    if (item.f[1] >= 1.1) drivers.push(`akselerasi tren (${item.f[1].toFixed(2).replace('.', ',')}×)`);
+    if (item.f[2] >= 2.0) drivers.push(`keterikatan ekosistem kuat (${item.f[2].toFixed(2).replace('.', ',')})`);
+    if (item.f[3] >= 0.45) drivers.push(`sebaran lintas profesi luas (${item.f[3].toFixed(2).replace('.', ',')})`);
+    if (drivers.length === 0) return 'Sinyal permintaan stabil dan masih berada pada fase pemantauan awal.';
+    return `Didorong oleh ${drivers.slice(0, 2).join(' dan ')}.`;
+  })();
 
-    <!-- 4 Signal Metrics -->
-    <div class="grid grid-cols-2 gap-2 text-xs">
-      <div class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-        <div class="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Pertumbuhan QoQ</div>
-        <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${(item.f[0] >= 0 ? '+' : '') + item.f[0].toFixed(2).replace('.', ',')}</div>
+  box.innerHTML = `
+    <div class="lg:hidden flex justify-center -mt-1 mb-1">
+      <span class="w-10 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>
+    </div>
+
+    <div class="flex items-start justify-between gap-3">
+      <div class="min-w-0">
+        <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">${item.d} &middot; ${STATE.quarter}</div>
+        <h3 class="font-display font-bold text-xl sm:text-2xl tracking-tight text-zinc-900 dark:text-white mt-0.5 truncate">${sk}</h3>
+        <span class="text-xs text-zinc-500 dark:text-zinc-400">Muncul di <strong class="text-zinc-800 dark:text-zinc-200">${item.c} lowongan</strong></span>
       </div>
-      <div class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-        <div class="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Akselerasi EMA</div>
-        <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[1].toFixed(2).replace('.', ',')}×</div>
-      </div>
-      <div class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-        <div class="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Koneksi Skill</div>
-        <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[2].toFixed(2).replace('.', ',')}</div>
-      </div>
-      <div class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-        <div class="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Sebaran Profesi</div>
-        <div class="font-mono font-semibold text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[3].toFixed(3).replace('.', ',')}</div>
+      <div class="flex items-start gap-2 shrink-0">
+        <div class="text-right space-y-1">
+          <div class="font-mono font-bold text-xl sm:text-2xl ${isWarn ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-800 dark:text-zinc-200'}">${probPct}%</div>
+          <div class="flex flex-wrap justify-end gap-1">${statusBadgeHtml}${backtestHtml}</div>
+        </div>
+        <button type="button" onclick="closeMobileInspector()" aria-label="Tutup inspektor" class="lg:hidden w-7 h-7 rounded-md bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-500 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
       </div>
     </div>
 
-    <div class="p-2.5 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-600 dark:text-zinc-300 leading-snug">
-      <span class="font-semibold text-zinc-800 dark:text-zinc-100">Pendorong Skor AI:</span>
-      ${(() => {
-        const drivers = [];
-        if (item.f[0] > 0.3) drivers.push(`lonjakan QoQ (+${item.f[0].toFixed(2).replace('.', ',')})`);
-        if (item.f[1] >= 1.1) drivers.push(`akselerasi tren (${item.f[1].toFixed(2).replace('.', ',')}×)`);
-        if (item.f[2] >= 2.0) drivers.push(`keterikatan ekosistem kuat (${item.f[2].toFixed(2).replace('.', ',')})`);
-        if (item.f[3] >= 0.45) drivers.push(`sebaran lintas profesi luas (${item.f[3].toFixed(2).replace('.', ',')})`);
-        if (drivers.length === 0) return 'Sinyal permintaan stabil dan masih berada pada fase pemantauan awal.';
-        return `Didorong oleh ${drivers.slice(0, 2).join(' dan ')}.`;
-      })()}
+    ${chartSectionHtml}
+
+    <!-- Clean 4-Metric Hairline Strip (No nested boxes) -->
+    <div class="grid grid-cols-4 divide-x divide-zinc-200 dark:divide-zinc-800 border-y border-zinc-100 dark:border-zinc-800 py-2.5 text-center">
+      <div class="px-1">
+        <div class="text-[10px] text-zinc-400 font-medium">QoQ</div>
+        <div class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 mt-0.5">${(item.f[0] >= 0 ? '+' : '') + item.f[0].toFixed(2).replace('.', ',')}</div>
+      </div>
+      <div class="px-1">
+        <div class="text-[10px] text-zinc-400 font-medium">EMA</div>
+        <div class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[1].toFixed(2).replace('.', ',')}×</div>
+      </div>
+      <div class="px-1">
+        <div class="text-[10px] text-zinc-400 font-medium">Koneksi</div>
+        <div class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[2].toFixed(2).replace('.', ',')}</div>
+      </div>
+      <div class="px-1">
+        <div class="text-[10px] text-zinc-400 font-medium">Profesi</div>
+        <div class="font-mono font-semibold text-xs text-zinc-900 dark:text-zinc-100 mt-0.5">${item.f[3].toFixed(2).replace('.', ',')}</div>
+      </div>
     </div>
 
-    <!-- Companion Skills -->
-    <div>
-      <div class="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 mb-1.5">Sering Diminta Bersama:</div>
-      <div class="flex flex-wrap gap-1.5">${partnerChips || '<span class="text-xs text-zinc-400">-</span>'}</div>
-    </div>
+    <div class="space-y-3 text-xs">
+      <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <span class="font-semibold text-zinc-900 dark:text-zinc-100">Pendorong Skor AI:</span> ${driverSummary}
+      </p>
 
-    <!-- Sample Jobs -->
-    <div class="space-y-1.5">
-      <div class="text-[11px] font-semibold text-zinc-500 dark:text-zinc-400">Contoh Lowongan Kerja Asli:</div>
-      ${jobCards}
+      <div>
+        <div class="text-[11px] font-medium text-zinc-500 dark:text-zinc-400 mb-1.5">Sering Diminta Bersama:</div>
+        <div class="flex flex-wrap gap-1.5">${partnerChips || '<span class="text-xs text-zinc-400">-</span>'}</div>
+      </div>
     </div>
 
     <!-- Action Buttons -->
@@ -1835,7 +1887,7 @@ function renderLiveSkillInspector() {
         <span>Analisis Lengkap</span>
       </button>
       <button type="button" onclick="switchView('v4')" class="py-2 px-3 rounded-md text-xs font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors inline-flex items-center justify-center gap-1.5">
-        <span>Semua Loker &amp; AI</span>
+        <span>Bukti Loker &amp; AI</span>
       </button>
     </div>
   `;
@@ -1857,46 +1909,6 @@ function renderView1() {
 
   document.getElementById('kpi-risk-count').textContent = qRows.length;
   document.getElementById('kpi-warn-count').textContent = warnCount;
-
-  const [mPref, algoShort] = mKey.split('|');
-  const algoFull = algoShort === 'RF' ? 'RandomForest' : (algoShort === 'LGBM' ? 'LightGBM' : (algoShort === 'XGB' ? 'XGBoost' : 'LogisticRegression'));
-  const mCodeMap = { M4: 'M4_Demand_Context_Role', M3: 'M3_Demand_Context', M2: 'M2_Demand_Role', M1: 'M1_Demand_Only' };
-  const abRow = DATA.ablation_summary.find(x => x.model_code === mCodeMap[mPref] && x.algorithm === algoFull) || DATA.ablation_summary[0];
-  document.getElementById('kpi-ap-val').textContent = (abRow.Average_Precision_mean * 100).toFixed(1).replace('.', ',') + '%';
-
-  const ltObj = DATA.lead_time[mKey] || DATA.lead_time['M4|RF'];
-  if (ltObj && ltObj.summary) {
-    document.getElementById('kpi-lt-val').textContent = '+' + ltObj.summary.mean_lt_first.toFixed(2).replace('.', ',');
-  }
-
-  // Render Top 5 Trending Cards
-  const spotDiv = document.getElementById('top5-spotlight');
-  spotDiv.innerHTML = '';
-  allScored.slice(0, 5).forEach((item, i) => {
-    const isSel = item.s === STATE.selectedSkill;
-    const card = document.createElement('div');
-    card.className = `min-w-[215px] sm:min-w-0 snap-start bg-white dark:bg-zinc-900 rounded-lg p-3.5 transition-colors cursor-pointer flex flex-col justify-between ${isSel ? 'border-2 border-zinc-900 dark:border-zinc-100 bg-zinc-50 dark:bg-zinc-800/60' : 'border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700'}`;
-    card.onclick = () => onSelectSkill(item.s);
-    const sparkSvg = buildMiniSparkline(item.s, item.warn === 1 ? '#059669' : '#2563EB');
-    card.innerHTML = `
-      <div>
-        <div class="flex items-center justify-between gap-1 font-mono text-xs">
-          <span class="text-zinc-400 font-medium">#0${i + 1}</span>
-          <span class="font-bold text-emerald-600 dark:text-emerald-400">${(item.prob * 100).toFixed(1).replace('.', ',')}%</span>
-        </div>
-        <div class="font-display font-bold text-sm sm:text-base text-zinc-900 dark:text-white mt-1.5 truncate" title="${item.s}">${item.s}</div>
-        <div class="text-[11px] text-zinc-500 dark:text-zinc-400 truncate">${item.d}</div>
-      </div>
-      <div class="flex items-end justify-between pt-2.5 mt-2 border-t border-zinc-100 dark:border-zinc-800">
-        <div>
-          <div class="text-[10px] text-zinc-400">Permintaan</div>
-          <div class="text-xs font-mono font-semibold text-zinc-800 dark:text-zinc-200">${item.c} loker</div>
-        </div>
-        ${sparkSvg}
-      </div>
-    `;
-    spotDiv.appendChild(card);
-  });
 
   const filtered = getFilteredWatchlist();
   const total = filtered.length;
@@ -1921,13 +1933,18 @@ function renderView1() {
       ? `<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">Bakal Naik</span>`
       : `<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Pantau</span>`;
 
+    const rankNum = startIdx + idx + 1;
+    const isTop5 = rankNum <= 5 && STATE.domain === 'ALL' && !STATE.searchQuery && !STATE.onlyWarn;
     tr.innerHTML = `
-      <td class="py-2.5 px-3 sm:px-3.5 font-mono text-zinc-400">${String(startIdx + idx + 1).padStart(2, '0')}</td>
-      <td class="py-2.5 px-3 sm:px-3.5">
-        <div class="font-display font-semibold text-zinc-900 dark:text-white text-xs sm:text-sm">${item.s}</div>
-        <div class="text-[11px] text-zinc-500 dark:text-zinc-400 truncate max-w-[130px] sm:max-w-none">${item.d}</div>
+      <td class="hidden sm:table-cell py-3.5 sm:py-2.5 px-3 sm:px-3.5 font-mono ${isTop5 ? 'text-blue-600 dark:text-blue-400 font-bold' : 'text-zinc-400'}">${String(rankNum).padStart(2, '0')}</td>
+      <td class="py-3.5 sm:py-2.5 px-3 sm:px-3.5">
+        <div class="flex items-center gap-1.5">
+          <span class="font-display font-semibold text-zinc-900 dark:text-white text-xs sm:text-sm">${item.s}</span>
+          ${isTop5 ? '<span class="sm:hidden px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-mono text-[9px] font-semibold">TOP 5</span>' : ''}
+        </div>
+        <div class="text-[11px] text-zinc-500 dark:text-zinc-400 truncate max-w-[155px] sm:max-w-none">${item.d}</div>
       </td>
-      <td class="py-2.5 px-3 sm:px-3.5 min-w-[130px] sm:min-w-[160px]">
+      <td class="py-3.5 sm:py-2.5 px-3 sm:px-3.5 min-w-0 sm:min-w-[160px]">
         <div class="flex items-center gap-2">
           <div class="relative h-1.5 flex-1 bg-zinc-100 dark:bg-zinc-800 rounded overflow-hidden">
             <div class="h-full rounded ${item.warn === 1 ? 'bg-emerald-600 dark:bg-emerald-500' : 'bg-zinc-400 dark:bg-zinc-600'}" style="width:${pctWidth}%"></div>
@@ -1936,12 +1953,12 @@ function renderView1() {
           <span class="font-mono font-semibold text-xs text-zinc-900 dark:text-white w-11 text-right">${(item.prob * 100).toFixed(1).replace('.', ',')}%</span>
         </div>
       </td>
-      <td class="py-2.5 px-3 sm:px-3.5 hidden sm:table-cell">${badgeStatus}</td>
-      <td class="py-2.5 px-3 sm:px-3.5 hidden md:table-cell">${getBacktestBadgeHtml(item.y)}</td>
-      <td class="py-2.5 px-3 sm:px-3.5 font-mono text-xs text-zinc-700 dark:text-zinc-300">
-        <strong>${item.c}</strong> <span class="text-zinc-400 hidden md:inline">(${item.sh.toFixed(1).replace('.', ',')}%)</span>
+      <td class="py-3.5 sm:py-2.5 px-3 sm:px-3.5 hidden sm:table-cell">${badgeStatus}</td>
+      <td class="py-3.5 sm:py-2.5 px-3 sm:px-3.5 hidden md:table-cell">${getBacktestBadgeHtml(item.y)}</td>
+      <td class="py-3.5 sm:py-2.5 px-3 sm:px-3.5 font-mono text-xs text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
+        <strong>${item.c}</strong> <span class="text-zinc-400 hidden md:inline">(${item.sh.toFixed(1).replace('.', ',')}%)</span><span class="lg:hidden text-zinc-400 ml-1">&rsaquo;</span>
       </td>
-      <td class="py-2.5 px-3 sm:px-3.5 text-right whitespace-nowrap" onclick="event.stopPropagation();">
+      <td class="hidden sm:table-cell py-3.5 sm:py-2.5 px-3 sm:px-3.5 text-right whitespace-nowrap" onclick="event.stopPropagation();">
         <button type="button" onclick="onSelectSkill('${item.s}', 'v2')" class="px-2.5 py-1 rounded text-xs font-medium bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-900 dark:hover:bg-zinc-100 text-zinc-700 dark:text-zinc-200 hover:text-white dark:hover:text-zinc-900 transition-colors">Detail</button>
       </td>
     `;
@@ -2033,6 +2050,38 @@ function buildSparklineSVG(values, quarters, tWarnQuarter, color, opts) {
       </svg>
     </div>
   `;
+}
+
+function applySegmentToggle(showId, hideId, activeBtnId, idleBtnId, activeCls, idleCls) {
+  const showEl = document.getElementById(showId);
+  const hideEl = document.getElementById(hideId);
+  const actBtn = document.getElementById(activeBtnId);
+  const idlBtn = document.getElementById(idleBtnId);
+  if (!showEl || !hideEl || !actBtn || !idlBtn) return;
+  showEl.classList.remove('hidden');
+  hideEl.classList.add('hidden');
+  actBtn.className = activeCls;
+  idlBtn.className = idleCls;
+}
+
+const MINI_TAB_ACTIVE = 'px-2.5 py-0.5 rounded bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-sm';
+const MINI_TAB_IDLE = 'px-2.5 py-0.5 rounded text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white';
+const SUB_TAB_ACTIVE = 'flex-1 sm:flex-none px-3.5 py-1.5 rounded-md bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white font-semibold shadow-sm transition-colors';
+const SUB_TAB_IDLE = 'flex-1 sm:flex-none px-3.5 py-1.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors';
+
+function setCoocTab(mode) {
+  if (mode === 'table') applySegmentToggle('cooc-panel-table', 'cooc-panel-graph', 'cooc-tab-table', 'cooc-tab-graph', MINI_TAB_ACTIVE, MINI_TAB_IDLE);
+  else applySegmentToggle('cooc-panel-graph', 'cooc-panel-table', 'cooc-tab-graph', 'cooc-tab-table', MINI_TAB_ACTIVE, MINI_TAB_IDLE);
+}
+
+function setV3SubTab(mode) {
+  if (mode === 'leadtime') applySegmentToggle('v3-panel-leadtime', 'v3-panel-ablation', 'v3-tab-leadtime', 'v3-tab-ablation', SUB_TAB_ACTIVE, SUB_TAB_IDLE);
+  else applySegmentToggle('v3-panel-ablation', 'v3-panel-leadtime', 'v3-tab-ablation', 'v3-tab-leadtime', SUB_TAB_ACTIVE, SUB_TAB_IDLE);
+}
+
+function setWfTab(mode) {
+  if (mode === 'chart') applySegmentToggle('wf-panel-chart', 'wf-panel-schedule', 'wf-tab-chart', 'wf-tab-schedule', MINI_TAB_ACTIVE, MINI_TAB_IDLE);
+  else applySegmentToggle('wf-panel-schedule', 'wf-panel-chart', 'wf-tab-schedule', 'wf-tab-chart', MINI_TAB_ACTIVE, MINI_TAB_IDLE);
 }
 
 function renderView2() {
@@ -2275,7 +2324,7 @@ function renderView3() {
 
   const wfDiv = document.getElementById('wf-schedule-container');
   wfDiv.innerHTML = DATA.folds_schedule.map(f => `
-    <div class="flex items-center gap-2 mb-1.5 text-xs">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-3.5 sm:mb-1.5 text-xs">
       <span class="font-mono font-semibold w-14 text-zinc-500 dark:text-zinc-400">Fold ${f.fold_id}</span>
       <div class="flex-1 flex flex-wrap sm:flex-nowrap gap-1 items-center">
         <div class="bg-zinc-900 dark:bg-zinc-700 text-white py-1 px-2.5 rounded font-mono text-[10px]" style="flex:${4 + f.fold_id * 1.5};">
@@ -2320,6 +2369,11 @@ function selectHeatmapCell(mCode, algo) {
   renderView3();
 }
 
+function setV4SubTab(mode) {
+  if (mode === 'shap') applySegmentToggle('v4-panel-shap', 'v4-panel-jobs', 'v4-tab-shap', 'v4-tab-jobs', SUB_TAB_ACTIVE, SUB_TAB_IDLE);
+  else applySegmentToggle('v4-panel-jobs', 'v4-panel-shap', 'v4-tab-jobs', 'v4-tab-shap', SUB_TAB_ACTIVE, SUB_TAB_IDLE);
+}
+
 function renderView4() {
   const sk = STATE.selectedSkill;
   const algo = document.getElementById('v4-algo-select').value;
@@ -2333,6 +2387,13 @@ function renderView4() {
   const predVal = shArr[2];
   const tauVal = shArr[3];
   const fVals = item ? item.f : [0.2, 1.1, 2.5, 0.4];
+
+  const isWarnSummary = predVal >= tauVal;
+  const algoLabel = algo === 'LGBM' ? 'LightGBM' : 'Random Forest';
+  const quickSum = document.getElementById('v4-quick-summary');
+  if (quickSum) {
+    quickSum.innerHTML = `Skor AI (${algoLabel}): <strong class="font-mono text-zinc-900 dark:text-zinc-100">${(predVal * 100).toFixed(1).replace('.', ',')}%</strong> &middot; <span class="${isWarnSummary ? 'text-emerald-600 dark:text-emerald-400 font-semibold' : 'text-zinc-500 dark:text-zinc-400'}">${isWarnSummary ? 'Sinyal Naik Aktif' : 'Masih Dipantau'}</span>`;
+  }
 
   document.getElementById('v4-eq-pill').textContent =
     `Total ${(predVal * 100).toFixed(1)}% = Dasar ${(baseVal * 100).toFixed(1)}% ${phi.map(v => (v >= 0 ? '+ ' : '- ') + (Math.abs(v) * 100).toFixed(1) + '%').join(' ')}`;
@@ -2361,7 +2422,7 @@ function renderView4() {
       : ((st.delta >= 0 ? '+' : '') + (st.delta * 100).toFixed(1).replace('.', ',') + '%');
 
     return `
-      <div class="grid grid-cols-12 items-center gap-2 sm:gap-3 py-2 border-b border-zinc-100 dark:border-zinc-800 text-xs">
+      <div class="grid grid-cols-12 items-center gap-2 sm:gap-3 py-2.5 sm:py-2 border-b border-zinc-100 dark:border-zinc-800 text-xs">
         <div class="col-span-5">
           <div class="font-semibold text-zinc-800 dark:text-zinc-200 truncate">${st.label}</div>
           <div class="font-mono text-[10px] text-zinc-400">${st.sub}</div>
@@ -2421,6 +2482,9 @@ function renderProvenanceTable() {
   const filteredJobs = roleFilter === 'ALL' ? allJobs : allJobs.filter(j => j.role === roleFilter);
   const jobs = filteredJobs.length > 0 ? filteredJobs : allJobs;
 
+  const jobCountEl = document.getElementById('v4-job-count');
+  if (jobCountEl) jobCountEl.textContent = jobs.length;
+
   const tbody = document.getElementById('prov-tbody');
   tbody.innerHTML = '';
 
@@ -2431,20 +2495,28 @@ function renderProvenanceTable() {
     tr.onclick = () => {
       STATE.selectedProvIndex = idx;
       renderProvenanceTable();
+      if (window.innerWidth && window.innerWidth < 1024) {
+        openMobileProvDetail();
+      }
     };
     const coSkills = (j.skills || []).slice(0, 3).map(s =>
       `<span class="inline-block px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 text-[10px] mr-1 mb-1">${s}</span>`
     ).join('');
 
     tr.innerHTML = `
-      <td class="py-2.5 px-3 font-mono text-[11px] text-zinc-600 dark:text-zinc-400 font-semibold">${j.job_id}</td>
-      <td class="py-2.5 px-3 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">${j.quarter}</td>
-      <td class="py-2.5 px-3">
-        <div class="font-semibold text-zinc-900 dark:text-white">${j.title}</div>
-        <div class="text-[11px] text-zinc-500 dark:text-zinc-400">${j.company} · ${j.location}</div>
+      <td class="hidden sm:table-cell py-3 sm:py-2.5 px-3 font-mono text-[11px] text-zinc-600 dark:text-zinc-400 font-semibold">${j.job_id}</td>
+      <td class="py-3 sm:py-2.5 px-3 font-mono text-[11px] text-zinc-500 dark:text-zinc-400 whitespace-nowrap">${j.quarter}</td>
+      <td class="py-3 sm:py-2.5 px-3">
+        <div class="flex items-center justify-between gap-2">
+          <div class="min-w-0">
+            <div class="font-semibold text-zinc-900 dark:text-white">${j.title}</div>
+            <div class="text-[11px] text-zinc-500 dark:text-zinc-400">${j.company} · ${j.location}</div>
+          </div>
+          <span class="lg:hidden text-zinc-400 shrink-0">&rsaquo;</span>
+        </div>
       </td>
-      <td class="py-2.5 px-3 hidden sm:table-cell"><span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-[11px] font-medium">${j.role}</span></td>
-      <td class="py-2.5 px-3">${coSkills}</td>
+      <td class="py-3 sm:py-2.5 px-3 hidden sm:table-cell"><span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-[11px] font-medium">${j.role}</span></td>
+      <td class="hidden md:table-cell py-3 sm:py-2.5 px-3">${coSkills}</td>
     `;
     tbody.appendChild(tr);
   });
@@ -2456,9 +2528,14 @@ function renderProvenanceTable() {
       `<span class="px-2 py-0.5 rounded text-xs font-medium ${s === sk ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold' : 'bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700'}">${s}</span>`
     ).join(' ');
     detailBox.innerHTML = `
-      <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
-        <span>DETAIL LOWONGAN KERJA</span>
-        <span>${selJob.job_id}</span>
+      <div class="lg:hidden flex justify-center -mt-1 mb-2">
+        <span class="w-10 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>
+      </div>
+      <div class="flex items-center justify-between gap-2 text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
+        <span>DETAIL LOWONGAN · ${selJob.job_id}</span>
+        <button type="button" onclick="closeMobileProvDetail()" aria-label="Tutup detail lowongan" class="lg:hidden w-7 h-7 rounded-md bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-500 dark:text-zinc-300 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
       </div>
       <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white mt-1.5">${selJob.title}</h3>
       <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
