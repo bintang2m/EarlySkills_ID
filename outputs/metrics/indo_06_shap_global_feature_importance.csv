@@ -1,0 +1,5 @@
+feature_name,signal_group,mean_abs_shap,std_abs_shap,mean_signed_shap,importance_share_pct,attribution_method,rank
+qoq_growth_smoothed,Demand Dynamics,0.082933,0.064582,0.031317,44.12,Antithetic Coalition Shapley Attribution (Efficiency-Normalized Probability Scale),1
+ema_ratio_short_long,Demand Dynamics,0.064588,0.05555,0.014391,34.36,Antithetic Coalition Shapley Attribution (Efficiency-Normalized Probability Scale),2
+cooc_weighted_degree_roll4,Context Evolution,0.020673,0.026918,0.001694,11.0,Antithetic Coalition Shapley Attribution (Efficiency-Normalized Probability Scale),3
+role_entropy_roll4,Role Expansion,0.019792,0.019032,0.012119,10.53,Antithetic Coalition Shapley Attribution (Efficiency-Normalized Probability Scale),4
