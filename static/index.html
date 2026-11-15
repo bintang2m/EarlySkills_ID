@@ -183,130 +183,152 @@
     </div>
 
     <!-- =================================================================
-         VIEW 0: BERANDA / OVERVIEW PAGE
+         VIEW 0: BERANDA / EDITORIAL OVERVIEW
          ================================================================= -->
-    <section id="view-v0" class="view-section active space-y-6 sm:space-y-8">
-      <!-- Hero + Dataset Snapshot -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pb-6 border-b border-zinc-200 dark:border-zinc-800">
-        <div class="lg:col-span-7 space-y-4">
-          <div id="v0-scope-label" class="text-[11px] font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-            INTELIJEN PASAR KERJA TI · INDONESIA &amp; GLOBAL
+    <section id="view-v0" class="view-section active space-y-8 sm:space-y-10">
+
+      <!-- 1. Editorial Split Hero + Interactive Dual-Line Showcase -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-1">
+        <div class="lg:col-span-6 space-y-5">
+          <div id="v0-scope-label" class="border-l-2 border-blue-600 dark:border-blue-500 pl-3 text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            SINYAL EARLYSKILL-ID · INDONESIA &amp; GLOBAL
           </div>
-          <h1 class="font-display font-bold text-2xl sm:text-4xl tracking-tight text-zinc-900 dark:text-white leading-tight">
-            Deteksi Skill TI yang Akan Naik Sebelum Menjadi Arus Utama
+          <h1 class="font-display font-bold text-3xl sm:text-5xl tracking-tight text-zinc-900 dark:text-white leading-[1.08]">
+            Lihat Skill yang Akan Naik Sebelum Pasar Ramai.
           </h1>
-          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
-            SINYAL EarlySkill-ID memantau pergerakan permintaan skill di lowongan kerja Indonesia dan Global untuk mengenali sinyal adopsi dini 1–2 kuartal lebih awal, lalu memvalidasinya secara historis terhadap realisasi pasar H+2.
+          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+            Memetakan pergerakan ribuan lowongan kerja TI Indonesia dan Global (2021–2026) untuk mendeteksi sinyal adopsi dini 1–2 kuartal lebih awal, lengkap dengan bukti historis H+2.
           </p>
+
           <div class="flex flex-wrap items-center gap-2.5 pt-1">
             <button type="button" onclick="switchView('v1')" class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 transition-colors inline-flex items-center gap-2">
-              <span>Buka Radar Skill</span>
+              <span>Jelajahi Radar Skill</span>
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </button>
-            <button type="button" onclick="switchScopePreserveSkill(STATE.datasetScope === 'INDONESIA' ? 'GLOBAL' : 'INDONESIA'); switchView('v1');" class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors">
-              Lihat Pasar Pembanding
             </button>
             <button type="button" onclick="toggleLivePredictorModal()" class="px-4 py-2.5 rounded-md text-xs sm:text-sm font-semibold bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors">
               Simulasi Skor AI
             </button>
           </div>
+
+          <div class="pt-2 space-y-2">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-400">Pratinjau cepat grafik ID vs Global:</div>
+            <div id="v0-hero-pills" class="flex flex-wrap gap-1.5"></div>
+          </div>
         </div>
 
-        <!-- Snapshot Box -->
-        <div class="lg:col-span-5 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 sm:p-5 space-y-4">
-          <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-3">
-            <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Ringkasan Panel Aktif</span>
-            <span id="v0-meta-scope" class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">INDONESIA</span>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[11px] font-mono uppercase text-zinc-400">Loker Divalidasi</div>
-              <div id="v0-stat-jobs" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white mt-0.5">—</div>
+        <!-- Right 6 Cols: Interactive Dual-Line Telemetry Card -->
+        <div class="lg:col-span-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+          <div class="px-5 py-4 border-b border-zinc-100 dark:border-zinc-800 flex items-start justify-between gap-3">
+            <div>
+              <div id="v0-hero-skill-sub" class="text-[11px] font-mono text-zinc-400">Domain · Kuartal</div>
+              <h2 id="v0-hero-skill-title" class="font-display font-bold text-xl sm:text-2xl tracking-tight text-zinc-900 dark:text-white mt-0.5">RAG</h2>
             </div>
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[11px] font-mono uppercase text-zinc-400">Skill Dipantau</div>
-              <div id="v0-stat-skills" class="font-mono font-bold text-lg sm:text-xl text-zinc-900 dark:text-white mt-0.5">—</div>
-            </div>
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[11px] font-mono uppercase text-zinc-400">Kecepatan Deteksi</div>
-              <div id="v0-stat-lead" class="font-mono font-bold text-lg sm:text-xl text-emerald-600 dark:text-emerald-400 mt-0.5">—</div>
-            </div>
-            <div class="p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
-              <div class="text-[11px] font-mono uppercase text-zinc-400">Akurasi Peringkat</div>
-              <div id="v0-stat-ap" class="font-mono font-bold text-lg sm:text-xl text-blue-600 dark:text-blue-400 mt-0.5">—</div>
+            <div class="text-right">
+              <div id="v0-hero-prob" class="font-mono font-bold text-2xl text-emerald-600 dark:text-emerald-400">—</div>
+              <div id="v0-hero-bt" class="mt-0.5"></div>
             </div>
           </div>
-          <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 pt-1">
-            <span id="v0-meta-range" class="font-mono">2023-Q1 – 2026-Q4</span>
-            <button type="button" onclick="switchView('v3')" class="font-semibold text-zinc-800 dark:text-zinc-200 hover:underline">Lihat Uji Akurasi &rarr;</button>
+
+          <div class="p-4 sm:p-5 space-y-2.5">
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
+              <span>Pangsa Pasar Lowongan (2023-Q1 – Terbaru)</span>
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-0.5 bg-blue-600 inline-block"></span>Indonesia</span>
+                <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-0.5 bg-emerald-600 inline-block"></span>Global</span>
+              </div>
+            </div>
+            <div id="v0-hero-chart" class="p-2.5 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800"></div>
+            <p id="v0-hero-insight" class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed"></p>
+          </div>
+
+          <div class="grid grid-cols-3 divide-x divide-zinc-200 dark:divide-zinc-800 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/60 text-xs">
+            <div class="px-4 py-3">
+              <div class="text-[10px] font-mono uppercase text-zinc-400">Pasar Indonesia</div>
+              <div id="v0-hero-id" class="font-mono font-semibold text-zinc-900 dark:text-white mt-0.5">—</div>
+            </div>
+            <div class="px-4 py-3">
+              <div class="text-[10px] font-mono uppercase text-zinc-400">Pasar Global</div>
+              <div id="v0-hero-gl" class="font-mono font-semibold text-zinc-900 dark:text-white mt-0.5">—</div>
+            </div>
+            <button type="button" id="v0-hero-cta" onclick="onSelectSkill(STATE.v0PreviewSkill || 'RAG', 'v2')" class="px-4 py-3 text-left hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors flex items-center justify-between">
+              <span class="font-semibold text-blue-600 dark:text-blue-400">Detail Tren</span>
+              <span class="font-mono text-blue-600 dark:text-blue-400">&rarr;</span>
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- 3-Step Pipeline -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <h2 class="font-display font-semibold text-sm sm:text-base text-zinc-900 dark:text-white">Cara Kerja Sistem</h2>
-          <span class="text-xs font-mono text-zinc-400">4 Fitur Temporal · Walk-Forward H+2</span>
+      <!-- 2. Unboxed Architectural Metric Strip -->
+      <div class="border-y border-zinc-200 dark:border-zinc-800 py-5 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-zinc-200 dark:divide-zinc-800">
+        <div class="lg:pr-6">
+          <div class="text-[11px] font-mono uppercase text-zinc-400">Loker Tervalidasi</div>
+          <div id="v0-stat-jobs" class="font-mono font-bold text-2xl sm:text-3xl tracking-tight text-zinc-900 dark:text-white mt-1">—</div>
+          <div id="v0-meta-range" class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-mono">2023-Q1 – 2026-Q4</div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
-            <div class="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400">01 · SINYAL AWAL</div>
-            <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Pantau 4 Indikator Permintaan</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Menghitung pertumbuhan kuartalan (QoQ), rasio akselerasi EMA, koneksi antar-skill di lowongan, dan penyebarannya ke berbagai profesi TI.</p>
-          </div>
-          <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
-            <div class="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400">02 · LINTAS PASAR</div>
-            <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Bandingkan Global vs Indonesia</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Menampilkan kurva pangsa pasar Global dan Indonesia pada garis waktu yang sama untuk melihat peluang adopsi lebih awal.</p>
-          </div>
-          <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
-            <div class="text-xs font-mono font-semibold text-zinc-700 dark:text-zinc-300">03 · BUKTI BACKTEST</div>
-            <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Verifikasi Realisasi H+2</h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Setiap kuartal historis menampilkan status aktual 2 kuartal berikutnya (Terbukti Naik vs Belum Tembus), lengkap dengan sampel lowongan asli.</p>
-          </div>
+        <div class="lg:px-6">
+          <div class="text-[11px] font-mono uppercase text-zinc-400">Kandidat Skill Aktif</div>
+          <div id="v0-stat-skills" class="font-mono font-bold text-2xl sm:text-3xl tracking-tight text-zinc-900 dark:text-white mt-1">—</div>
+          <div id="v0-meta-scope" class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-mono">INDONESIA</div>
+        </div>
+        <div class="lg:px-6">
+          <div class="text-[11px] font-mono uppercase text-zinc-400">Kecepatan Deteksi</div>
+          <div id="v0-stat-lead" class="font-mono font-bold text-2xl sm:text-3xl tracking-tight text-emerald-600 dark:text-emerald-400 mt-1">—</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Rata-rata lebih awal sebelum ramai</div>
+        </div>
+        <div class="lg:pl-6">
+          <div class="text-[11px] font-mono uppercase text-zinc-400">Average Precision</div>
+          <div id="v0-stat-ap" class="font-mono font-bold text-2xl sm:text-3xl tracking-tight text-blue-600 dark:text-blue-400 mt-1">—</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Evaluasi Walk-Forward M4</div>
         </div>
       </div>
 
-      <!-- Case Study Spotlight Cards -->
-      <div class="space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 class="font-display font-semibold text-sm sm:text-base text-zinc-900 dark:text-white">Contoh Sinyal Nyata dari Dataset</h2>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400">Klik salah satu skill untuk membuka grafik perbandingan Global vs Indonesia dan pasangan skill-nya.</p>
+      <!-- 3. Real Data Movers + Global-vs-Indonesia Adoption Gap -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Left 7 Cols: Top Signal Movers Table -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="flex items-end justify-between gap-2">
+            <div>
+              <h2 class="font-display font-bold text-lg tracking-tight text-zinc-900 dark:text-white">Sinyal Terkuat Kuartal Ini</h2>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400">Peringkat teratas berdasarkan skor prediksi M4. Klik baris untuk melihat analisis lengkap.</p>
+            </div>
+            <button type="button" onclick="switchView('v1')" class="shrink-0 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Lihat Semua &rarr;</button>
           </div>
-          <button type="button" onclick="switchView('v1')" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Buka Semua Watchlist &rarr;</button>
+          <div class="bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+            <div id="v0-movers-list" class="divide-y divide-zinc-100 dark:divide-zinc-800"></div>
+          </div>
         </div>
-        <div id="v0-spotlight-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+
+        <!-- Right 5 Cols: Largest Global-vs-Indonesia Adoption Gaps -->
+        <div class="lg:col-span-5 space-y-3">
+          <div class="flex items-end justify-between gap-2">
+            <div>
+              <h2 class="font-display font-bold text-lg tracking-tight text-zinc-900 dark:text-white">Peluang Awal (Global Memimpin)</h2>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400">Skill dengan pangsa pasar Global jauh lebih tinggi daripada Indonesia.</p>
+            </div>
+          </div>
+          <div id="v0-gap-list" class="space-y-2.5"></div>
+        </div>
       </div>
 
-      <!-- Quick Glossary + Section Jump -->
-      <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 space-y-4">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <h2 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Panduan Singkat Halaman &amp; Status</h2>
-          <span class="text-[11px] font-mono text-zinc-400">Klik kartu untuk langsung membuka halaman</span>
+      <!-- 4. Clean Borderless Method & Navigation Index -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400">01 / RADAR &amp; BACKTEST H+2</div>
+          <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Filter Domain &amp; Validasi Historis</h3>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Bandingkan hasil prediksi di kuartal historis terhadap realisasi H+2 (Terbukti Naik vs Belum Tembus) dan ekspor CSV.</p>
+          <button type="button" onclick="switchView('v1')" class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:underline pt-1 inline-block">Buka Radar Skill &rarr;</button>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-          <button type="button" onclick="switchView('v1')" class="text-left p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 transition-colors">
-            <div class="font-semibold text-zinc-900 dark:text-white">1. Radar Skill</div>
-            <div class="text-zinc-500 dark:text-zinc-400 mt-1">Peringkat kandidat, filter domain/kuartal, status Backtest H+2, dan export CSV.</div>
-          </button>
-          <button type="button" onclick="switchView('v2')" class="text-left p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 transition-colors">
-            <div class="font-semibold text-zinc-900 dark:text-white">2. Detail Tren</div>
-            <div class="text-zinc-500 dark:text-zinc-400 mt-1">Grafik 4 sinyal, kurva ID vs Global, jaringan pasangan skill, dan sebaran profesi.</div>
-          </button>
-          <button type="button" onclick="switchView('v4')" class="text-left p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 transition-colors">
-            <div class="font-semibold text-zinc-900 dark:text-white">3. Bukti Loker &amp; AI</div>
-            <div class="text-zinc-500 dark:text-zinc-400 mt-1">Sampel lowongan asli yang menuntut skill tersebut dan bobot fitur model AI.</div>
-          </button>
-          <button type="button" onclick="switchView('v3')" class="text-left p-3 rounded-md bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 transition-colors">
-            <div class="font-semibold text-zinc-900 dark:text-white">4. Performa Model</div>
-            <div class="text-zinc-500 dark:text-zinc-400 mt-1">Perbandingan akurasi walk-forward M1–M4 pada Random Forest, LightGBM, dan XGBoost.</div>
-          </button>
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400">02 / BUKTI LOWONGAN KERJA</div>
+          <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Sampel Loker &amp; Bobot Fitur AI</h3>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Lihat lowongan kerja asli yang meminta skill tersebut beserta kontribusi fitur QoQ, akselerasi EMA, ekosistem, dan profesi.</p>
+          <button type="button" onclick="switchView('v4')" class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:underline pt-1 inline-block">Buka Bukti Loker &rarr;</button>
         </div>
-        <div class="flex flex-wrap items-center gap-3 pt-2 border-t border-zinc-100 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400">
-          <span><strong class="text-emerald-600 dark:text-emerald-400">Bakal Naik / Terbukti Naik:</strong> Melewati ambang sinyal / terkonfirmasi naik pada H+2.</span>
-          <span><strong class="text-zinc-700 dark:text-zinc-200">Prospektif:</strong> Kuartal berjalan yang realisasi H+2-nya masih menunggu data mendatang.</span>
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400">03 / UJI AKURASI WALK-FORWARD</div>
+          <h3 class="font-display font-semibold text-sm text-zinc-900 dark:text-white">Studi Ablasi M1–M4</h3>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">Evaluasi perbandingan Random Forest, LightGBM, XGBoost, dan Logistic Regression tanpa kebocoran data masa depan.</p>
+          <button type="button" onclick="switchView('v3')" class="text-xs font-semibold text-zinc-900 dark:text-zinc-100 hover:underline pt-1 inline-block">Lihat Performa Model &rarr;</button>
         </div>
       </div>
     </section>
@@ -912,6 +934,7 @@ let DATA = DATASETS.INDONESIA;
 const STATE = {
   datasetScope: 'INDONESIA',
   view: 'v0',
+  v0PreviewSkill: 'RAG',
   quarter: '2026-Q4',
   domain: 'ALL',
   modelKey: 'M4|RF',
@@ -2429,6 +2452,11 @@ async function runLivePredictSimulation() {
   }
 }
 
+function setV0PreviewSkill(sk) {
+  STATE.v0PreviewSkill = sk;
+  renderView0();
+}
+
 function renderView0() {
   const scopeEl = document.getElementById('v0-meta-scope');
   const jobsEl = document.getElementById('v0-stat-jobs');
@@ -2436,8 +2464,9 @@ function renderView0() {
   const leadEl = document.getElementById('v0-stat-lead');
   const apEl = document.getElementById('v0-stat-ap');
   const rangeEl = document.getElementById('v0-meta-range');
-  const grid = document.getElementById('v0-spotlight-grid');
-  if (!grid) return;
+  const moversBox = document.getElementById('v0-movers-list');
+  const gapBox = document.getElementById('v0-gap-list');
+  if (!moversBox || !gapBox) return;
 
   const qRows = DATA.watchlist[STATE.quarter] || DATA.watchlist[DATA.meta.default_quarter] || [];
   if (scopeEl) scopeEl.textContent = STATE.datasetScope;
@@ -2462,44 +2491,115 @@ function renderView0() {
     return { ...r, prob: pArr[0], warn: pArr[2] };
   }).sort((a, b) => b.prob - a.prob);
 
-  const preferred = ['RAG', 'AI Agents', 'PyTorch', 'LangChain', 'dbt'];
-  const picks = [];
-  preferred.forEach(name => {
-    const found = scored.find(x => x.s === name);
-    if (found && picks.length < 3) picks.push(found);
+  const heroPool = [];
+  ['RAG', 'AI Agents', 'PyTorch', 'dbt', 'Kubernetes', 'LangChain'].forEach(name => {
+    if (scored.some(x => x.s === name)) heroPool.push(name);
   });
   scored.forEach(item => {
-    if (picks.length < 3 && !picks.some(p => p.s === item.s)) picks.push(item);
+    if (heroPool.length < 5 && !heroPool.includes(item.s)) heroPool.push(item.s);
   });
+  const quickPills = heroPool.slice(0, 5);
+  if (!STATE.v0PreviewSkill || !scored.some(x => x.s === STATE.v0PreviewSkill)) {
+    STATE.v0PreviewSkill = quickPills[0] || (scored[0] && scored[0].s) || 'RAG';
+  }
 
-  grid.innerHTML = picks.map(item => {
-    const cross = getCrossScopeInfo(item.s, STATE.quarter);
-    const otherText = (cross && cross.otherItem)
-      ? `${cross.otherLabel} (${cross.matchQ}): ${cross.otherItem.sh.toFixed(2).replace('.', ',')}%`
-      : 'Khusus pasar aktif';
-    const noteText = cross ? cross.insight : '';
-    return `
-      <div class="bg-white dark:bg-zinc-900 rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-3">
-        <div class="space-y-2">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <div class="text-[11px] font-mono text-zinc-400">${item.d}</div>
-              <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white mt-0.5">${item.s}</h3>
-            </div>
-            <div class="text-right">
-              <div class="font-mono font-bold text-sm ${item.warn === 1 ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-800 dark:text-zinc-200'}">${(item.prob * 100).toFixed(1).replace('.', ',')}%</div>
-              <div class="mt-0.5">${getBacktestBadgeHtml(item.y)}</div>
-            </div>
-          </div>
-          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400 pt-1 border-t border-zinc-100 dark:border-zinc-800">
-            <span>${STATE.datasetScope === 'INDONESIA' ? 'Indonesia' : 'Global'}: ${item.sh.toFixed(2).replace('.', ',')}% (${item.c} loker)</span>
-            <span>${otherText}</span>
-          </div>
-          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">${noteText}</p>
+  const pillsEl = document.getElementById('v0-hero-pills');
+  if (pillsEl) {
+    pillsEl.innerHTML = quickPills.map(name => {
+      const active = name === STATE.v0PreviewSkill;
+      return `<button type="button" onclick="setV0PreviewSkill('${name}')" class="px-2.5 py-1 rounded text-xs font-mono transition-colors border ${active ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 font-semibold' : 'bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600'}">${name}</button>`;
+    }).join('');
+  }
+
+  const heroItem = scored.find(x => x.s === STATE.v0PreviewSkill) || scored[0];
+  if (heroItem) {
+    const heroCross = getCrossScopeInfo(heroItem.s, STATE.quarter);
+    const idSh = heroItem.sh.toFixed(2).replace('.', ',') + '%';
+    const glSh = (heroCross && heroCross.otherItem)
+      ? heroCross.otherItem.sh.toFixed(2).replace('.', ',') + '%'
+      : '—';
+    const idNum = STATE.datasetScope === 'INDONESIA' ? idSh : glSh;
+    const glNum = STATE.datasetScope === 'INDONESIA' ? glSh : idSh;
+
+    const hTitle = document.getElementById('v0-hero-skill-title');
+    const hSub = document.getElementById('v0-hero-skill-sub');
+    const hProb = document.getElementById('v0-hero-prob');
+    const hBt = document.getElementById('v0-hero-bt');
+    const hChart = document.getElementById('v0-hero-chart');
+    const hIns = document.getElementById('v0-hero-insight');
+    const hId = document.getElementById('v0-hero-id');
+    const hGl = document.getElementById('v0-hero-gl');
+
+    if (hTitle) hTitle.textContent = heroItem.s;
+    if (hSub) hSub.textContent = `${heroItem.d} · ${STATE.quarter}`;
+    if (hProb) {
+      hProb.textContent = (heroItem.prob * 100).toFixed(1).replace('.', ',') + '%';
+      hProb.className = `font-mono font-bold text-2xl ${heroItem.warn === 1 ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-800 dark:text-zinc-200'}`;
+    }
+    if (hBt) hBt.innerHTML = getBacktestBadgeHtml(heroItem.y);
+    if (hChart) hChart.innerHTML = buildDualScopeSVG(heroItem.s, { width: 520, height: 152 });
+    if (hIns && heroCross) hIns.textContent = heroCross.insight;
+    if (hId) hId.textContent = `${idNum} (${STATE.datasetScope === 'INDONESIA' ? heroItem.c : (heroCross && heroCross.otherItem ? heroCross.otherItem.c : '—')} loker)`;
+    if (hGl) hGl.textContent = `${glNum} (${STATE.datasetScope === 'GLOBAL' ? heroItem.c : (heroCross && heroCross.otherItem ? heroCross.otherItem.c : '—')} loker)`;
+  }
+
+  // Top 5 Movers compact table rows
+  moversBox.innerHTML = scored.slice(0, 5).map((item, i) => `
+    <div onclick="onSelectSkill('${item.s}', 'v2')" class="px-4 py-3 flex items-center justify-between gap-3 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 cursor-pointer transition-colors">
+      <div class="flex items-center gap-3 min-w-0">
+        <span class="font-mono text-xs text-zinc-400 w-5 shrink-0">${String(i + 1).padStart(2, '0')}</span>
+        <div class="min-w-0">
+          <div class="font-display font-semibold text-sm text-zinc-900 dark:text-white truncate">${item.s}</div>
+          <div class="text-[11px] text-zinc-500 dark:text-zinc-400 truncate">${item.d} · ${item.c} loker</div>
         </div>
-        <button type="button" onclick="onSelectSkill('${item.s}', 'v2')" class="w-full py-2 px-3 rounded-md text-xs font-semibold bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-900 dark:hover:bg-zinc-100 text-zinc-800 dark:text-zinc-200 hover:text-white dark:hover:text-zinc-900 border border-zinc-200 dark:border-zinc-800 transition-colors text-center">
-          Lihat Grafik &amp; Detail Tren &rarr;
-        </button>
+      </div>
+      <div class="hidden sm:block shrink-0">${buildMiniSparkline(item.s, item.warn === 1 ? '#059669' : '#2563EB')}</div>
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="hidden md:block">${getBacktestBadgeHtml(item.y)}</div>
+        <div class="font-mono font-bold text-sm w-14 text-right ${item.warn === 1 ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-800 dark:text-zinc-200'}">${(item.prob * 100).toFixed(1).replace('.', ',')}%</div>
+        <span class="font-mono text-xs text-zinc-400">&rarr;</span>
+      </div>
+    </div>
+  `).join('');
+
+  // Top Global-vs-Indonesia Adoption Gap bars
+  const idLatest = DATASETS.INDONESIA.watchlist[DATASETS.INDONESIA.meta.default_quarter] || [];
+  const glQuarters = (DATASETS.GLOBAL.meta && DATASETS.GLOBAL.meta.quarters_all) || [];
+  const gapItems = [];
+  idLatest.forEach(r => {
+    const trGl = DATASETS.GLOBAL.trajectories && DATASETS.GLOBAL.trajectories[r.s];
+    if (!trGl || !trGl.sh || trGl.sh.length === 0) return;
+    const glLatestSh = trGl.sh[trGl.sh.length - 1];
+    const diff = glLatestSh - r.sh;
+    if (diff > 0.4) {
+      gapItems.push({ s: r.s, d: r.d, idSh: r.sh, glSh: glLatestSh, diff, glQ: glQuarters[glQuarters.length - 1] || 'Global' });
+    }
+  });
+  gapItems.sort((a, b) => b.diff - a.diff);
+  const topGaps = gapItems.slice(0, 4);
+  const maxBar = topGaps.length > 0 ? Math.max(...topGaps.map(x => Math.max(x.idSh, x.glSh)), 1) : 1;
+
+  gapBox.innerHTML = topGaps.map(g => {
+    const wId = Math.max(4, Math.round((g.idSh / maxBar) * 100));
+    const wGl = Math.max(4, Math.round((g.glSh / maxBar) * 100));
+    return `
+      <div onclick="setV0PreviewSkill('${g.s}')" class="p-3.5 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 cursor-pointer transition-colors space-y-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="font-display font-semibold text-xs sm:text-sm text-zinc-900 dark:text-white">${g.s}</span>
+          <span class="text-[11px] font-mono font-semibold text-emerald-600 dark:text-emerald-400">+${g.diff.toFixed(2).replace('.', ',')}% Global</span>
+        </div>
+        <div class="space-y-1 text-[10px] font-mono">
+          <div class="flex items-center gap-2">
+            <span class="w-8 text-zinc-400">ID</span>
+            <div class="flex-1 h-1.5 rounded bg-zinc-100 dark:bg-zinc-800 overflow-hidden"><div class="h-full bg-blue-600 rounded" style="width:${wId}%"></div></div>
+            <span class="w-11 text-right text-zinc-700 dark:text-zinc-300">${g.idSh.toFixed(2).replace('.', ',')}%</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-8 text-zinc-400">GL</span>
+            <div class="flex-1 h-1.5 rounded bg-zinc-100 dark:bg-zinc-800 overflow-hidden"><div class="h-full bg-emerald-600 rounded" style="width:${wGl}%"></div></div>
+            <span class="w-11 text-right text-zinc-700 dark:text-zinc-300">${g.glSh.toFixed(2).replace('.', ',')}%</span>
+          </div>
+        </div>
       </div>
     `;
   }).join('');
