@@ -745,7 +745,7 @@
             <h2 class="font-display font-bold text-sm sm:text-base text-zinc-900 dark:text-white">Bukti Iklan Lowongan Kerja Asli</h2>
             <p class="text-xs text-zinc-500 dark:text-zinc-400">Ketuk baris lowongan untuk melihat rincian posisi dan kombinasi skill yang diminta perusahaan.</p>
           </div>
-          <select id="v4-role-filter" onchange="renderProvenanceTable()" class="w-full sm:w-auto rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
+          <select id="v4-role-filter" onchange="STATE.selectedProvIndex = 0; renderProvenanceTable();" class="w-full sm:w-auto rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 sm:py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200">
             <option value="ALL">Semua Profesi TI</option>
           </select>
         </div>
@@ -1367,11 +1367,121 @@ function onFilterChange() {
   renderAll();
 }
 
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+const ESTABLISHED_SKILLS_META = [
+  ['Python', 'Programming Languages', ['python', 'python3']],
+  ['Java', 'Programming Languages', ['java', 'jvm', 'j2ee']],
+  ['JavaScript', 'Programming Languages', ['javascript', 'js', 'ecmascript', 'es6']],
+  ['C#', 'Programming Languages', ['c#', 'c-sharp', 'csharp']],
+  ['Golang', 'Programming Languages', ['golang', 'go']],
+  ['Kotlin', 'Programming Languages', ['kotlin']],
+  ['PHP', 'Programming Languages', ['php', 'php7', 'php8']],
+  ['Bash / Shell', 'Programming Languages', ['bash', 'shell', 'powershell', 'zsh']],
+  ['.NET', 'Web & Backend', ['.net', 'dotnet', 'asp.net']],
+  ['React', 'Web & Backend', ['react', 'reactjs', 'react.js']],
+  ['Angular', 'Web & Backend', ['angular', 'angularjs']],
+  ['Vue.js', 'Web & Backend', ['vue', 'vuejs', 'vue.js', 'nuxt']],
+  ['Node.js', 'Web & Backend', ['node', 'nodejs', 'node.js', 'express', 'nestjs']],
+  ['Laravel', 'Web & Backend', ['laravel']],
+  ['REST API', 'Web & Backend', ['rest api', 'restful', 'openapi', 'swagger']],
+  ['Microservices', 'Web & Backend', ['microservices', 'microservice']],
+  ['iOS', 'Mobile & Cross-Platform', ['ios', 'xcode', 'objective-c']],
+  ['Android', 'Mobile & Cross-Platform', ['android', 'android sdk', 'jetpack']],
+  ['Flutter', 'Mobile & Cross-Platform', ['flutter']],
+  ['SQL', 'Databases & Warehouses', ['sql', 't-sql', 'pl/sql']],
+  ['PostgreSQL', 'Databases & Warehouses', ['postgresql', 'postgres', 'postgis']],
+  ['MySQL', 'Databases & Warehouses', ['mysql', 'mariadb']],
+  ['SQL Server', 'Databases & Warehouses', ['sql server', 'mssql']],
+  ['MongoDB', 'Databases & Warehouses', ['mongodb', 'mongo']],
+  ['Data Engineering', 'Data & Analytics', ['data engineering', 'etl', 'elt', 'data pipeline']],
+  ['Airflow', 'Data & Analytics', ['airflow', 'apache airflow']],
+  ['Power BI', 'Data & Analytics', ['power bi', 'powerbi']],
+  ['AWS', 'Cloud & DevOps', ['aws', 'amazon web services']],
+  ['Azure', 'Cloud & DevOps', ['azure', 'microsoft azure']],
+  ['GCP', 'Cloud & DevOps', ['gcp', 'google cloud']],
+  ['Docker', 'Cloud & DevOps', ['docker', 'dockerfile']],
+  ['Kubernetes', 'Cloud & DevOps', ['kubernetes', 'k8s', 'eks', 'gke']],
+  ['Containerization', 'Cloud & DevOps', ['containerization', 'container']],
+  ['Terraform', 'Cloud & DevOps', ['terraform', 'terragrunt']],
+  ['CI/CD', 'Cloud & DevOps', ['ci/cd', 'cicd', 'jenkins']],
+  ['Linux', 'Cloud & DevOps', ['linux', 'ubuntu', 'centos', 'unix']],
+  ['Git', 'Cloud & DevOps', ['git', 'gitflow']],
+  ['GitHub', 'Cloud & DevOps', ['github', 'github actions']],
+  ['GitLab', 'Cloud & DevOps', ['gitlab', 'gitlab ci']],
+  ['Data Science', 'AI / ML & GenAI', ['data science', 'data scientist']],
+  ['Machine Learning', 'AI / ML & GenAI', ['machine learning']],
+  ['Cybersecurity', 'Security', ['cybersecurity', 'cyber security', 'infosec', 'pentest', 'owasp']],
+  ['TypeScript', 'Programming Languages', ['typescript']],
+  ['Spark', 'Data & Analytics', ['spark', 'apache spark']],
+  ['Kafka', 'Data & Analytics', ['kafka', 'apache kafka']],
+  ['Ansible', 'Cloud & DevOps', ['ansible']],
+  ['IaC', 'Cloud & DevOps', ['iac', 'infrastructure as code']],
+  ['C++', 'Programming Languages', ['c++', 'cpp']],
+  ['Ruby', 'Programming Languages', ['ruby', 'rails']],
+  ['Scala', 'Programming Languages', ['scala']]
+];
+
+function findEstablishedSkillMatch(queryLower) {
+  if (!queryLower) return null;
+  for (const [name, domain, aliases] of ESTABLISHED_SKILLS_META) {
+    if (name.toLowerCase() === queryLower || aliases.some(a => a === queryLower || (queryLower.length >= 3 && a.includes(queryLower)))) {
+      return { name, domain };
+    }
+  }
+  return null;
+}
+
+function resetWatchlistFilters() {
+  STATE.domain = 'ALL';
+  STATE.onlyWarn = false;
+  STATE.searchQuery = '';
+  STATE.minJobs = 3;
+  STATE.page = 1;
+  const sEl = document.getElementById('f-search');
+  const dEl = document.getElementById('f-domain');
+  const wEl = document.getElementById('f-onlywarn');
+  const mEl = document.getElementById('f-minjobs');
+  if (sEl) sEl.value = '';
+  if (dEl) dEl.value = 'ALL';
+  if (wEl) wEl.checked = false;
+  if (mEl) mEl.value = 3;
+  renderCategoryPills();
+  renderAll();
+}
+
+function switchScopeAndFilter(scope, searchText) {
+  onDatasetScopeChange(scope);
+  STATE.domain = 'ALL';
+  STATE.onlyWarn = false;
+  STATE.searchQuery = (searchText || '').trim().toLowerCase();
+  const sEl = document.getElementById('f-search');
+  const dEl = document.getElementById('f-domain');
+  const wEl = document.getElementById('f-onlywarn');
+  if (sEl) sEl.value = searchText || '';
+  if (dEl) dEl.value = 'ALL';
+  if (wEl) wEl.checked = false;
+  renderCategoryPills();
+  renderAll();
+}
+
 function onSelectSkill(skillName, goToView) {
+  const prevSkill = STATE.selectedSkill;
   STATE.selectedSkill = skillName;
   document.getElementById('v2-skill-select').value = skillName;
   document.getElementById('v4-skill-select').value = skillName;
   STATE.selectedProvIndex = 0;
+  if (prevSkill !== skillName) {
+    const r4 = document.getElementById('v4-role-filter');
+    if (r4) r4.value = 'ALL';
+  }
   if (goToView) {
     closeMobileInspector();
     switchView(goToView);
@@ -1920,6 +2030,71 @@ function renderView1() {
   const tbody = document.getElementById('watchlist-tbody');
   tbody.innerHTML = '';
 
+  if (pageItems.length === 0) {
+    const rawSearch = (document.getElementById('f-search') && document.getElementById('f-search').value || STATE.searchQuery || '').trim();
+    const qLower = rawSearch.toLowerCase();
+    const otherKey = STATE.datasetScope === 'INDONESIA' ? 'GLOBAL' : 'INDONESIA';
+    const otherLabel = otherKey === 'GLOBAL' ? 'Global' : 'Indonesia';
+    const curLabel = STATE.datasetScope === 'INDONESIA' ? 'Indonesia' : 'Global';
+    const otherData = (typeof DATASETS !== 'undefined' && DATASETS[otherKey]) ? DATASETS[otherKey] : null;
+    const otherDefaultQ = otherData ? otherData.meta.default_quarter : null;
+    const otherRows = (otherData && otherDefaultQ && otherData.watchlist[otherDefaultQ]) ? otherData.watchlist[otherDefaultQ] : [];
+
+    const hiddenInQuarter = qLower
+      ? allScored.filter(r => r.s.toLowerCase().includes(qLower) || r.d.toLowerCase().includes(qLower))
+      : [];
+    const matchOther = qLower
+      ? otherRows.filter(r => r.s.toLowerCase().includes(qLower))
+      : [];
+    const estMatch = qLower ? findEstablishedSkillMatch(qLower) : null;
+
+    let titleMsg = 'Tidak ada skill yang sesuai dengan filter saat ini.';
+    let descMsg = 'Coba kurangi syarat minimal lowongan, matikan filter Sinyal Naik, atau reset pencarian.';
+    let actionHtml = `<button type="button" onclick="resetWatchlistFilters()" class="mt-3 px-3 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">Reset Filter &amp; Pencarian</button>`;
+
+    if (hiddenInQuarter.length > 0) {
+      const firstMatch = hiddenInQuarter[0];
+      const reasons = [];
+      if (STATE.domain !== 'ALL' && firstMatch.d !== STATE.domain) reasons.push(`berada di kategori <strong>${escapeHtml(firstMatch.d)}</strong> (bukan ${escapeHtml(STATE.domain)})`);
+      if (STATE.onlyWarn && firstMatch.warn !== 1) reasons.push(`berstatus <strong>Pantau</strong> (filter Hanya Sinyal Naik sedang aktif)`);
+      if (firstMatch.c < STATE.minJobs) reasons.push(`memiliki <strong>${firstMatch.c} lowongan</strong> (di bawah batas Min. ${STATE.minJobs})`);
+      titleMsg = `"${escapeHtml(firstMatch.s)}" ada di kuartal ini, tetapi tersembunyi oleh filter`;
+      descMsg = reasons.length > 0
+        ? `Skill ini tidak tampil karena ${reasons.join(' dan ')}.`
+        : `Skill ini berada di luar batas Top-${STATE.topK} atau terfilter parameter aktif.`;
+      actionHtml = `<button type="button" onclick="resetWatchlistFilters()" class="mt-3 px-3 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">Tampilkan Tanpa Filter</button>`;
+    } else if (matchOther.length > 0) {
+      const mOther = matchOther[0];
+      titleMsg = `"${escapeHtml(mOther.s)}" tidak masuk Radar ${curLabel}, tetapi terpantau di dataset ${otherLabel}`;
+      descMsg = `Di pasar ${curLabel}, skill ini sudah tergolong mapan atau belum memenuhi syarat pantauan kuartal ini, sedangkan di pasar ${otherLabel} masih masuk Risk Set.`;
+      actionHtml = `
+        <div class="mt-3 flex flex-wrap justify-center gap-2">
+          <button type="button" onclick="switchScopeAndFilter('${otherKey}', '${escapeHtml(mOther.s)}')" class="px-3 py-1.5 rounded-md text-xs font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-colors">Lihat di Dataset ${otherLabel}</button>
+          <button type="button" onclick="resetWatchlistFilters()" class="px-3 py-1.5 rounded-md text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">Reset Pencarian</button>
+        </div>
+      `;
+    } else if (estMatch) {
+      titleMsg = `"${escapeHtml(estMatch.name)}" sudah tergolong skill mapan (mainstream)`;
+      descMsg = `Kategori <strong>${escapeHtml(estMatch.domain)}</strong>. Radar SINYAL EarlySkill-ID menyaring teknologi yang sudah mapan secara otomatis agar fokus mendeteksi skill baru yang mulai menanjak (Risk Set).`;
+      actionHtml = `<button type="button" onclick="resetWatchlistFilters()" class="mt-3 px-3 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">Kembali ke Semua Radar Skill</button>`;
+    } else if (rawSearch) {
+      titleMsg = `Skill "${escapeHtml(rawSearch)}" tidak ditemukan di daftar Radar`;
+      descMsg = `Pastikan ejaan sudah tepat, atau skill tersebut belum tercakup dalam daftar ${allScored.length} emerging skill yang dipantau pada kuartal ${escapeHtml(STATE.quarter)}.`;
+    }
+
+    const emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = `
+      <td colspan="7" class="py-10 px-4 text-center">
+        <div class="max-w-md mx-auto space-y-1.5">
+          <div class="text-sm font-semibold text-zinc-900 dark:text-white">${titleMsg}</div>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">${descMsg}</p>
+          ${actionHtml}
+        </div>
+      </td>
+    `;
+    tbody.appendChild(emptyTr);
+  }
+
   pageItems.forEach((item, idx) => {
     const isSel = item.s === STATE.selectedSkill;
     const tr = document.createElement('tr');
@@ -1978,8 +2153,9 @@ function renderView1() {
       btNote = ` · Backtest H+2: ${totHits}/${evalRows.length} skill naik`;
     }
   }
-  document.getElementById('watchlist-summary-text').textContent =
-    `${total === 0 ? 0 : startIdx + 1}–${Math.min(total, startIdx + STATE.pageSize)} dari ${total} skill${btNote}`;
+  document.getElementById('watchlist-summary-text').textContent = total === 0
+    ? 'Tidak ada skill yang sesuai dengan pencarian / filter aktif'
+    : `${startIdx + 1}–${Math.min(total, startIdx + STATE.pageSize)} dari ${total} skill${btNote}`;
 
   const pagesDiv = document.getElementById('watchlist-pages');
   pagesDiv.innerHTML = '';
@@ -2475,18 +2651,68 @@ function renderView4() {
   renderProvenanceTable();
 }
 
+function resetV4RoleFilter() {
+  const r4 = document.getElementById('v4-role-filter');
+  if (r4) r4.value = 'ALL';
+  STATE.selectedProvIndex = 0;
+  renderProvenanceTable();
+}
+
 function renderProvenanceTable() {
   const sk = STATE.selectedSkill;
-  const roleFilter = document.getElementById('v4-role-filter').value;
+  const r4 = document.getElementById('v4-role-filter');
   const allJobs = DATA.provenance[sk] || [];
-  const filteredJobs = roleFilter === 'ALL' ? allJobs : allJobs.filter(j => j.role === roleFilter);
-  const jobs = filteredJobs.length > 0 ? filteredJobs : allJobs;
+  let roleFilter = r4 ? r4.value : 'ALL';
+
+  // Rebuild role dropdown with live counts for the selected skill
+  if (r4 && DATA.meta && Array.isArray(DATA.meta.verified_roles)) {
+    const roleCounts = {};
+    allJobs.forEach(j => { roleCounts[j.role] = (roleCounts[j.role] || 0) + 1; });
+    r4.innerHTML = `<option value="ALL">Semua Profesi TI (${allJobs.length})</option>`;
+    DATA.meta.verified_roles.forEach(r => {
+      const cnt = roleCounts[r] || 0;
+      const o = document.createElement('option');
+      o.value = r;
+      o.textContent = `${r} (${cnt})`;
+      if (r === roleFilter) o.selected = true;
+      r4.appendChild(o);
+    });
+    if (roleFilter !== 'ALL' && !DATA.meta.verified_roles.includes(roleFilter)) {
+      roleFilter = 'ALL';
+      r4.value = 'ALL';
+    }
+  }
+
+  const jobs = roleFilter === 'ALL' ? allJobs : allJobs.filter(j => j.role === roleFilter);
+  if (STATE.selectedProvIndex >= jobs.length) {
+    STATE.selectedProvIndex = 0;
+  }
 
   const jobCountEl = document.getElementById('v4-job-count');
   if (jobCountEl) jobCountEl.textContent = jobs.length;
 
   const tbody = document.getElementById('prov-tbody');
   tbody.innerHTML = '';
+
+  if (jobs.length === 0) {
+    const emptyMsg = allJobs.length === 0
+      ? `Belum ada contoh iklan lowongan tersimpan untuk skill <strong>${escapeHtml(sk)}</strong> pada dataset ${escapeHtml(STATE.datasetScope)}.`
+      : `Tidak ada iklan lowongan untuk skill <strong>${escapeHtml(sk)}</strong> pada kategori profesi <strong>${escapeHtml(roleFilter)}</strong>.`;
+    const emptyBtn = allJobs.length > 0
+      ? `<button type="button" onclick="resetV4RoleFilter()" class="mt-3 px-3 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors">Tampilkan Semua Profesi TI (${allJobs.length})</button>`
+      : '';
+    const emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = `
+      <td colspan="5" class="py-10 px-4 text-center">
+        <div class="max-w-sm mx-auto space-y-1.5">
+          <div class="text-sm font-semibold text-zinc-900 dark:text-white">Tidak ada lowongan yang cocok</div>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">${emptyMsg}</p>
+          ${emptyBtn}
+        </div>
+      </td>
+    `;
+    tbody.appendChild(emptyTr);
+  }
 
   jobs.forEach((j, idx) => {
     const isSel = idx === STATE.selectedProvIndex;
@@ -2547,6 +2773,21 @@ function renderProvenanceTable() {
       <div class="mt-3.5">
         <div class="text-[10px] font-mono uppercase text-zinc-400 font-semibold mb-1.5">KOMBINASI SKILL DI LOWONGAN INI:</div>
         <div class="flex flex-wrap gap-1.5">${chips}</div>
+      </div>
+    `;
+  } else {
+    detailBox.innerHTML = `
+      <div class="py-6 text-center space-y-2">
+        <div class="text-xs font-mono uppercase text-zinc-400">DETAIL LOWONGAN KERJA</div>
+        <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+          ${allJobs.length === 0 ? `Belum ada data lowongan untuk ${escapeHtml(sk)}` : `Tidak ada lowongan pada profesi ini`}
+        </div>
+        <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+          ${allJobs.length === 0
+            ? `Sampel iklan lowongan untuk skill ${escapeHtml(sk)} belum tersedia pada dataset ${escapeHtml(STATE.datasetScope)}.`
+            : `Skill ${escapeHtml(sk)} memiliki ${allJobs.length} lowongan di kategori profesi TI lainnya.`}
+        </p>
+        ${allJobs.length > 0 ? `<button type="button" onclick="resetV4RoleFilter()" class="mt-2 px-3 py-1.5 rounded-md text-xs font-semibold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900">Tampilkan Semua Profesi TI</button>` : ''}
       </div>
     `;
   }
