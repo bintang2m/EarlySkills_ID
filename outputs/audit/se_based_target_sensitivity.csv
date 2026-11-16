@@ -1,0 +1,9 @@
+definisi_target,n_risk_set,n_positif,tingkat_positif_%,skill_unik_positif,skill_unik_negatif_murni,skill_oos_total,skill_oos_positif,skill_oos_negatif_murni,saturasi_skill_oos_%
+"T0 (Legacy): Ambang Tetap 5%/7,5% + Baseline 1Q (Tanpa Filter SE)",1359,553,40.69,76,1,74,72,2,97.3
+T1 (PRIMARY OPTIMAL): Kuantil Kausal (P60=4.74%/P65=7.94%) + Surge Kuartal Individual,1334,549,41.15,76,1,75,73,2,97.33
+"T2: Kuantil Jangkar (P60/P65) + Baseline Anti-Mean-Reversion max(1Q, Roll4)",1334,407,30.51,75,2,75,72,3,96.0
+T3: Kuantil Jangkar (P60/P65) + Anti-Mean-Reversion + Sustained 2Q Mean,1334,383,28.71,75,2,75,72,3,96.0
+T4_0.5xSE (Moderat 0.5xSE): Kuantil (P60/P65) + Anti-Mean-Rev + Sustained 2Q + >=0.5xSE,1334,381,28.56,75,2,75,72,3,96.0
+T4_1xSE (Revisi Ketat 1.0xSE): Kuantil (P60/P65) + Anti-Mean-Rev + Sustained 2Q + >=1xSE,1334,254,19.04,72,5,75,66,9,88.0
+T4_1.5xSE (Strict 1.5xSE): Kuantil (P60/P65) + Anti-Mean-Rev + Sustained 2Q + >=1.5xSE,1334,123,9.22,53,24,75,45,30,60.0
+T4_2xSE (Strict 2xSE): Kuantil (P60/P65) + Anti-Mean-Rev + Sustained 2Q + >=2xSE,1334,65,4.87,38,39,75,31,44,41.33

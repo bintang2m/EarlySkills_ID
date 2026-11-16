@@ -1,0 +1,7 @@
+configuration_name,target_type,max_baseline_share,max_career_cummax_share,anti_mean_reversion,se_guard_multiplier,valid_samples,unconditional_panel_samples,positive_events,negative_events,positive_rate_pct,unconditional_positive_rate_pct,min_positives_in_a_quarter,max_positives_in_a_quarter,unique_candidate_skills,unique_emerging_skills,unique_non_emerging_skills,skill_level_positive_pct
+"R0 (PRIMARY OPTIMAL): Causal Quantile Risk-Set (P60=4.74%, P65=7.94%) + Individual Quarter Surge (+0.35%/+25%)",Legacy_Fixed_1Q,0.0455,0.0759,False,0.0,1334,2242,549,785,41.15,24.49,15,43,77,76,1,98.7
+R1 (Quantile + Sustained 2Q): Causal Quantile Risk-Set (P60/P65) + Sustained 2Q Mean Trajectory,Legacy_Fixed_1Q,0.0455,0.0759,False,0.0,1334,2242,519,815,38.91,23.15,15,40,77,76,1,98.7
+R2 (Quantile + Anti-Mean-Reversion 0.5xSE): Causal Quantile (P60/P65) + Anti-Mean-Rev + >=0.5xSE + Sustained 2Q,Primary_Quantile_SE_Guarded,0.0455,0.0759,True,0.5,1334,2242,381,953,28.56,16.99,5,34,77,75,2,97.4
+R3 (Revisi Ketat 1.0xSE): Causal Quantile (P60/P65) + Anti-Mean-Reversion + >=1.0xSE + Sustained 2Q,Primary_Quantile_SE_Guarded,0.0455,0.0759,True,1.0,1334,2242,254,1080,19.04,11.33,2,28,77,72,5,93.51
+R4 (Sangat Ketat 1.5xSE): Causal Quantile (P60/P65) + Anti-Mean-Reversion + >=1.5xSE + Sustained 2Q,Primary_Quantile_SE_Guarded,0.0455,0.0759,True,1.5,1334,2242,123,1211,9.22,5.49,0,17,77,53,24,68.83
+R5 (Legacy Fixed 5.0%/7.5%): Fixed Cap (5.0%/7.5%) + Single-Quarter 1Q Baseline,Legacy_Fixed_1Q,0.05,0.075,False,0.0,1359,2242,553,806,40.69,24.67,15,43,77,76,1,98.7

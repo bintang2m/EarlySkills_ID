@@ -1,0 +1,7 @@
+fold_id,fold_role,train_period,purged_embargo_quarters,test_period,max_train_outcome_quarter_idx,min_test_quarter_idx,leakage_check_passed
+1,validation,2021-Q3 .. 2022-Q3 (5Q),"2022-Q4, 2023-Q1","2023-Q2, 2023-Q3",8,9,True
+2,validation,2021-Q3 .. 2023-Q1 (7Q),"2023-Q2, 2023-Q3","2023-Q4, 2024-Q1",10,11,True
+3,validation,2021-Q3 .. 2023-Q3 (9Q),"2023-Q4, 2024-Q1","2024-Q2, 2024-Q3",12,13,True
+4,validation,2021-Q3 .. 2024-Q1 (11Q),"2024-Q2, 2024-Q3","2024-Q4, 2025-Q1",14,15,True
+5,final_test,2021-Q3 .. 2024-Q3 (13Q),"2024-Q4, 2025-Q1","2025-Q2, 2025-Q3",16,17,True
+6,final_test,2021-Q3 .. 2025-Q1 (15Q),"2025-Q2, 2025-Q3","2025-Q4, 2026-Q1",18,19,True

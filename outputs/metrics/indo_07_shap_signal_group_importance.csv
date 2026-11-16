@@ -1,4 +1,4 @@
 signal_group,n_features,total_mean_abs_shap,mean_abs_shap_per_feature,group_importance_share_pct,top_feature_in_group
-Demand Dynamics,2,0.147521,0.0737605,78.47999999999999,qoq_growth_smoothed
-Context Evolution,1,0.020673,0.020673,11.0,cooc_weighted_degree_roll4
-Role Expansion,1,0.019792,0.019792,10.53,role_entropy_roll4
+Demand Dynamics,2,0.153448,0.076724,75.34,qoq_growth_smoothed
+Context Evolution,1,0.027524,0.027524,13.51,cooc_weighted_degree_roll4
+Role Expansion,1,0.022706,0.022706,11.15,role_entropy_roll4

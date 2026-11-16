@@ -1,0 +1,3 @@
+subset_oos,total_obs,M5_higher_prob_count,M1_higher_prob_count,M5_better_rank_count,M1_better_rank_count,M5_only_true_positive_alert,M1_only_true_positive_alert,M5_suppresses_M1_false_alarm,M1_suppresses_M5_false_alarm
+"Sampel Positif Aktual (y = 1, Emerging)",390,244,146,229,146,43.0,21.0,,
+"Sampel Negatif Aktual (y = 0, Non-Emerging)",457,207,250,206,236,,,42.0,36.0

@@ -1,0 +1,15 @@
+metric,value
+initial_raw_rows,9698
+invalid_date_rows_removed,0
+exact_job_id_duplicates_removed,0
+within_quarter_repost_duplicates_removed,5
+rows_after_deduplication,9693
+non_it_rows_filtered,3
+final_valid_it_postings,9690
+postings_with_full_description,9652
+postings_with_title_only,38
+postings_with_at_least_1_skill,9167
+postings_with_0_skills_extracted,523
+total_job_skill_pairs_extracted,64677
+unique_canonical_skills_detected,118
+unique_canonical_roles,13

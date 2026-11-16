@@ -1,0 +1,7 @@
+funnel_step,passing_skill_quarters,share_of_valid_samples_pct,share_of_risk_set_pct,unique_skills_passing,share_of_total_skills_pct,methodological_rationale
+Step 0: Semua Observasi Panel Valid (q_idx >= 2 & Horizon H=2 Lengkap),2242,100.0,100.0,118,100.0,Populasi penuh panel (19 kuartal x 118 skill = 2.242 sampel)
+Step C1 (RISK SET KUANTIL UTAMA): Non-Established (roll4 <= P60 [4.55%] & cummax <= P65 [7.59%]),1334,59.5,100.0,77,65.25,"Aturan utama kuantil jangkar pra-evaluasi Fold 1 (bukan angka tetap 5,0% / 7,5%)"
+Step C1+C2 (Dukungan Volume): count_h >= 3 & sum_2Q >= 5,1045,46.61,78.34,76,64.41,Minimal satu kuartal Q+1 atau Q+2 mencapai >=3 lowongan dengan total 2Q >=5 lowongan
+"Step C1..C3 (Gain Absolut Anti-Mean-Reversion): share_{t+h} - max(1Q, roll4) >= +0.35%",617,27.52,46.25,76,64.41,Menolak pantulan semu dari penurunan 1 kuartal yang sekadar kembali ke rata-rata 4Q
+Step C1..C4 (Lonjakan Relatif Anti-Mean-Reversion): rel_gain_ref_h >= +25%,549,24.49,41.15,76,64.41,Kuartal yang sama juga melampaui ambang lonjakan relatif di atas baseline referensi
+Step C1..C5 (TARGET UTAMA + SE GUARD): abs_gain_ref_h >= 0.0xSE & mean_2Q > base_ref,549,24.49,41.15,76,64.41,Menyaring derau sampling binomial & blip 1Q sehingga tidak semua skill menjadi positif

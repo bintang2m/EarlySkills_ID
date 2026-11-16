@@ -1,0 +1,25 @@
+column_name,dtype,total_rows,non_null_count,null_count,empty_string_count,total_missing_count,missing_pct,n_unique,sample_value
+job_id,object,9698,9698,0,0,0,0.0,9698,ts_44610
+title,object,9698,9698,0,0,0,0.0,6465,SQL/Power BI developer
+company,object,9698,9698,0,0,0,0.0,6752,Spring Technology
+location,object,9698,9189,509,0,509,5.25,2992,Remote
+description,object,9698,9666,32,4,36,0.37,9582,"£400/day
+Remote
+Inside IR35
+Spring Technology
+Power BI Developer - SQL - Financi"
+created_dt,object,9698,9698,0,0,0,0.0,45,2021-03-30 00:00:00
+data_source,object,9698,9698,0,0,0,0.0,1,TheirStack_API
+salary_min,float64,9698,2614,7084,0,7084,73.05,1146,0.0
+salary_max,float64,9698,2608,7090,0,7090,73.11,1187,0.0
+salary_currency,object,9698,9698,0,0,0,0.0,4,USD
+job_title_normalized,object,9698,9698,0,0,0,0.0,6339,sql/power bi developer
+core_domain,object,9698,9698,0,0,0,0.0,4,AI / ML & Data
+role_category,object,9698,9698,0,0,0,0.0,4,AI / ML & Data
+year,int64,9698,9698,0,0,0,0.0,6,2021
+quarter,int64,9698,9698,0,0,0,0.0,4,1
+month,int64,9698,9698,0,0,0,0.0,4,3
+year_quarter,object,9698,9698,0,0,0,0.0,23,2021-Q1
+year_month,object,9698,9698,0,0,0,0.0,23,2021-03
+tags,float64,9698,0,9698,0,9698,100.0,0,ALL_NULL
+extracted_skills,object,9698,9126,572,0,572,5.9,6098,"SQL, Power BI"

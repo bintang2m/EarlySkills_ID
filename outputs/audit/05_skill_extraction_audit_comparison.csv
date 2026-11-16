@@ -1,0 +1,120 @@
+skill,domain_category,raw_extracted_count,audited_canonical_count,count_difference,audit_diagnosis
+Python,Programming Languages,3440,3442,2,Consistent
+AWS,Cloud & DevOps,2759,2759,0,Consistent
+SQL,Databases & Warehouses,3419,2740,-679,"Decoupled Conflated Entities (Postgres/MySQL, GitHub/GitLab, Tableau)"
+CI/CD,Cloud & DevOps,2283,2676,393,Refined Boundary / Alias Matching
+Java,Programming Languages,2173,2187,14,Consistent
+JavaScript,Programming Languages,2643,2186,-457,Refined Boundary / Alias Matching
+Azure,Cloud & DevOps,2046,2046,0,Consistent
+Git,Cloud & DevOps,2534,1849,-685,"Decoupled Conflated Entities (Postgres/MySQL, GitHub/GitLab, Tableau)"
+Kubernetes,Cloud & DevOps,1572,1616,44,Consistent
+React,Web & Backend,1751,1605,-146,Refined Boundary / Alias Matching
+Linux,Cloud & DevOps,1724,1536,-188,Refined Boundary / Alias Matching
+Docker,Cloud & DevOps,1514,1514,0,Consistent
+Cybersecurity,Security,3160,1391,-1769,Cleaned Generic 'security' False Positives
+REST API,Web & Backend,1025,1224,199,Refined Boundary / Alias Matching
+GCP,Cloud & DevOps,1162,1162,0,Consistent
+Data Engineering,Data & Analytics,917,1118,201,Refined Boundary / Alias Matching
+Data Science,AI / ML & GenAI,798,1117,319,Refined Boundary / Alias Matching
+Machine Learning,AI / ML & GenAI,1009,989,-20,Consistent
+Terraform,Cloud & DevOps,929,929,0,Consistent
+TypeScript,Programming Languages,1126,924,-202,Refined Boundary / Alias Matching
+Angular,Web & Backend,834,894,60,Refined Boundary / Alias Matching
+Microservices,Web & Backend,825,884,59,Refined Boundary / Alias Matching
+Bash / Shell,Programming Languages,0,863,863,Newly Separated / Recovered Entity
+C#,Programming Languages,350,833,483,Fixed Special-Character Boundary Regex
+IaC,Cloud & DevOps,625,805,180,Refined Boundary / Alias Matching
+.NET,Web & Backend,0,803,803,Newly Separated / Recovered Entity
+Node.js,Web & Backend,869,789,-80,Refined Boundary / Alias Matching
+GitHub,Cloud & DevOps,0,757,757,Newly Separated / Recovered Entity
+PostgreSQL,Databases & Warehouses,0,756,756,Newly Separated / Recovered Entity
+MySQL,Databases & Warehouses,0,724,724,Newly Separated / Recovered Entity
+Containerization,Cloud & DevOps,709,692,-17,Consistent
+C++,Programming Languages,15,674,659,Fixed Special-Character Boundary Regex
+Android,Mobile & Cross-Platform,662,662,0,Consistent
+SQL Server,Databases & Warehouses,0,659,659,Newly Separated / Recovered Entity
+iOS,Mobile & Cross-Platform,594,610,16,Consistent
+Ansible,Cloud & DevOps,594,594,0,Consistent
+Kafka,Data & Analytics,0,562,562,Newly Separated / Recovered Entity
+Spark,Data & Analytics,541,540,-1,Consistent
+PHP,Programming Languages,532,534,2,Consistent
+MongoDB,Databases & Warehouses,0,472,472,Newly Separated / Recovered Entity
+GitLab,Cloud & DevOps,0,463,463,Newly Separated / Recovered Entity
+Power BI,Data & Analytics,674,446,-228,"Decoupled Conflated Entities (Postgres/MySQL, GitHub/GitLab, Tableau)"
+Vue.js,Web & Backend,280,441,161,Refined Boundary / Alias Matching
+Tableau,Data & Analytics,0,439,439,Newly Separated / Recovered Entity
+Golang,Programming Languages,198,432,234,Refined Boundary / Alias Matching
+Kotlin,Programming Languages,425,425,0,Consistent
+Observability,Cloud & DevOps,0,422,422,Newly Separated / Recovered Entity
+Spring Boot,Web & Backend,366,417,51,Refined Boundary / Alias Matching
+Swift,Programming Languages,382,384,2,Consistent
+Excel,Office & Productivity,0,374,374,Newly Separated / Recovered Entity
+LLM,AI / ML & GenAI,295,360,65,Refined Boundary / Alias Matching
+Scala,Programming Languages,347,347,0,Consistent
+Microsoft Office,Office & Productivity,0,340,340,Newly Separated / Recovered Entity
+Elasticsearch,Databases & Warehouses,0,338,338,Newly Separated / Recovered Entity
+React Native,Mobile & Cross-Platform,0,320,320,Newly Separated / Recovered Entity
+Serverless,Cloud & DevOps,0,313,313,Newly Separated / Recovered Entity
+Grafana,Cloud & DevOps,0,309,309,Newly Separated / Recovered Entity
+Prometheus,Cloud & DevOps,0,297,297,Newly Separated / Recovered Entity
+Hadoop,Data & Analytics,286,296,10,Consistent
+Airflow,Data & Analytics,363,293,-70,Refined Boundary / Alias Matching
+R,Programming Languages,6,289,283,Refined Boundary / Alias Matching
+GraphQL,Web & Backend,284,288,4,Consistent
+Snowflake,Databases & Warehouses,294,286,-8,Consistent
+Redis,Databases & Warehouses,0,279,279,Newly Separated / Recovered Entity
+Databricks,Databases & Warehouses,269,274,5,Consistent
+Ruby,Programming Languages,332,267,-65,Refined Boundary / Alias Matching
+Deep Learning,AI / ML & GenAI,199,245,46,Consistent
+Data Governance,Data & Analytics,0,242,242,Newly Separated / Recovered Entity
+TensorFlow,AI / ML & GenAI,238,234,-4,Consistent
+MLOps,AI / ML & GenAI,179,223,44,Consistent
+PyTorch,AI / ML & GenAI,223,223,0,Consistent
+Generative AI,AI / ML & GenAI,203,220,17,Consistent
+NLP,AI / ML & GenAI,202,203,1,Consistent
+Django,Web & Backend,199,199,0,Consistent
+Selenium,Cloud & DevOps,0,191,191,Newly Separated / Recovered Entity
+Redshift,Databases & Warehouses,0,176,176,Newly Separated / Recovered Entity
+Next.js,Web & Backend,170,170,0,Consistent
+Pandas,Data & Analytics,164,169,5,Consistent
+BigQuery,Databases & Warehouses,148,166,18,Consistent
+DynamoDB,Databases & Warehouses,0,161,161,Newly Separated / Recovered Entity
+Looker,Data & Analytics,0,159,159,Newly Separated / Recovered Entity
+AI Agents,AI / ML & GenAI,0,151,151,Newly Separated / Recovered Entity
+Laravel,Web & Backend,150,150,0,Consistent
+Computer Vision,AI / ML & GenAI,146,150,4,Consistent
+Datadog,Cloud & DevOps,0,149,149,Newly Separated / Recovered Entity
+Cassandra,Databases & Warehouses,0,139,139,Newly Separated / Recovered Entity
+Flask,Web & Backend,135,135,0,Consistent
+Flutter,Mobile & Cross-Platform,0,132,132,Newly Separated / Recovered Entity
+GitOps,Cloud & DevOps,0,129,129,Newly Separated / Recovered Entity
+PySpark,Data & Analytics,129,129,0,Consistent
+dbt,Data & Analytics,0,128,128,Newly Separated / Recovered Entity
+Scikit-Learn,AI / ML & GenAI,114,125,11,Consistent
+Hive,Data & Analytics,121,121,0,Consistent
+Rust,Programming Languages,120,120,0,Consistent
+Cypress,Cloud & DevOps,0,120,120,Newly Separated / Recovered Entity
+RAG,AI / ML & GenAI,114,118,4,Consistent
+PowerPoint,Office & Productivity,0,113,113,Newly Separated / Recovered Entity
+NumPy,Data & Analytics,108,108,0,Consistent
+Ruby on Rails,Web & Backend,124,98,-26,Consistent
+FastAPI,Web & Backend,90,90,0,Consistent
+Microsoft Word,Office & Productivity,0,88,88,Newly Separated / Recovered Entity
+SQLite,Databases & Warehouses,0,87,87,Newly Separated / Recovered Entity
+gRPC,Web & Backend,0,87,87,Newly Separated / Recovered Entity
+LangChain,AI / ML & GenAI,77,79,2,Consistent
+Prompt Engineering,AI / ML & GenAI,76,79,3,Consistent
+Vector Database,Databases & Warehouses,26,78,52,Refined Boundary / Alias Matching
+Playwright,Cloud & DevOps,0,74,74,Newly Separated / Recovered Entity
+Flink,Data & Analytics,0,73,73,Newly Separated / Recovered Entity
+Fine-Tuning,AI / ML & GenAI,57,66,9,Consistent
+Transformers,AI / ML & GenAI,43,55,12,Consistent
+Tailwind CSS,Web & Backend,0,51,51,Newly Separated / Recovered Entity
+Oracle DB,Databases & Warehouses,0,44,44,Newly Separated / Recovered Entity
+Keras,AI / ML & GenAI,0,43,43,Newly Separated / Recovered Entity
+CUDA,AI / ML & GenAI,0,41,41,Newly Separated / Recovered Entity
+Hugging Face,AI / ML & GenAI,40,40,0,Consistent
+LlamaIndex,AI / ML & GenAI,22,23,1,Consistent
+Google Sheets,Office & Productivity,0,21,21,Newly Separated / Recovered Entity
+vLLM,AI / ML & GenAI,8,8,0,Consistent
+Ollama,Legacy Raw Tag,2,0,-2,Consistent
